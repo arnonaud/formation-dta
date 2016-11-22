@@ -8,7 +8,7 @@ public class OperateursApp {
 		System.out.println("Veuillez saisir le premier nombre...");
 		Scanner sc = new Scanner(System.in);
 		String valeur1 = sc.nextLine();
-		System.out.println("Veuillez saisir le deuxieme nombre...");
+		System.out.println("Veuillez saisir un deuxieme nombre...");
 		String valeur2 = sc.nextLine();
 		double val1 = Double.parseDouble(valeur1);
 		double val2 = Double.parseDouble(valeur2);
