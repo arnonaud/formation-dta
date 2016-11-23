@@ -7,9 +7,7 @@ public class PizzeriaAdminConsoleApp {
 	
 	
 	public static void main(String args[]){
-		
-		
-		
+				
 		String pizzas[][]  = {{"0","PEP","Pépéroni","12.50"},
 							  {"1","MAR","Margherita","14.00"},
 							  {"2","REI","La Reine","11.50"},
