@@ -76,6 +76,7 @@ public class PizzeriaAdminConsoleApp {
 		for(int i=0; i<Pizza.nbPizzas; i++) {
 			System.out.println(pizzas[i].code + " -> " + pizzas[i].nom +  " (" + pizzas[i].prix + "€)");
 		}
+		System.out.println("------- " + Pizza.nbPizzas + " pizzas créées depuis l’initialisation du programme");
 	}
 	
 	public static Pizza[] ajouterPizza(Scanner sc, Pizza[] pizzas){
