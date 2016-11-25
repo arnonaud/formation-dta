@@ -4,6 +4,7 @@ import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.Ajouter;
 import fr.pizzeria.ihm.action.ListerPizzas;
 import fr.pizzeria.ihm.action.MiseAJour;
+import fr.pizzeria.ihm.action.Supprimer;
 
 public class Menu {
 
@@ -17,6 +18,7 @@ public class Menu {
 		this.menu[1] = new ListerPizzas(ihmUtil);
 		this.menu[2] = new Ajouter(ihmUtil);
 		this.menu[3] = new MiseAJour(ihmUtil);
+		this.menu[4] = new Supprimer(ihmUtil);
 	}
 	
 	public void execAction() {

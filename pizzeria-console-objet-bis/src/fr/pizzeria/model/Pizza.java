@@ -59,6 +59,9 @@ public class Pizza {
 	public static void addNbPizzas() {
 		Pizza.nbPizzas++;
 	}
+	public static void supNbPizzas() {
+		Pizza.nbPizzas--;
+	}
 	
 	
 }

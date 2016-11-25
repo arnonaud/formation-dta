@@ -49,8 +49,18 @@ public class PizzaDaoTableau implements PizzaDao{
 
 
 	@Override
-	public void deletePizza(String codePizza) {
-		// TODO Auto-generated method stub
+	public void deletePizza(int indice) {
+		//Création d'un nouveau tableau temporaire avec suppression de la pizza voulue
+		Pizza[] newPizzas = new Pizza[(Pizza.getNbPizzas()-1)];
+		int indexNewPizza = 0;
+		for(int j=0; j<Pizza.getNbPizzas(); j++) {
+			if(j!=indice){
+				newPizzas[indexNewPizza] = pizzas[j];
+				indexNewPizza++;
+			}
+		}
+		
+		this.pizzas = newPizzas;
 		
 	}
 	

@@ -7,5 +7,5 @@ public interface PizzaDao {
 	Pizza[] findAll();
 	void save(Pizza p);
 	void updatePizza(int indice, Pizza pizza);
-	void deletePizza(String codePizza);
+	void deletePizza(int indice);
 } 
