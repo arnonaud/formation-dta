@@ -26,7 +26,7 @@ public class Ajouter extends Action{
 		String prix = this.ihmUtil.getScanner().nextLine();
 		
 		//crée l'objet pizza à partir de la saisie
-		Pizza p = new Pizza(Pizza.getNbPizzas(),code,nom,Integer.parseInt(prix));
+		Pizza p = new Pizza(code,nom,Integer.parseInt(prix));
 		this.ihmUtil.getPizzaDao().save(p);
 		
 	}

@@ -9,14 +9,14 @@ public class PizzaDaoTableau implements PizzaDao{
 	
 	public PizzaDaoTableau() {
 		Pizza pizzas[] =  {
-				new Pizza(0, "PEP", "Pépéroni", 12.50),
-				new Pizza(1, "MAR", "Margherita", 14.00),
-				new Pizza(2, "REI", "La Reine", 11.50),
-				new Pizza(3, "FRO", "La 4 fromages", 11.50),
-				new Pizza(4, "CAN", "La cannibale", 11.50),
-				new Pizza(5, "SAV", "La savoyarde", 11.50),
-				new Pizza(6, "ORI", "L'orientale", 11.50),
-				new Pizza(7, "IND", "L'indienne", 11.50)
+				new Pizza("PEP", "Pépéroni", 12.50),
+				new Pizza("MAR", "Margherita", 14.00),
+				new Pizza("REI", "La Reine", 11.50),
+				new Pizza("FRO", "La 4 fromages", 11.50),
+				new Pizza("CAN", "La cannibale", 11.50),
+				new Pizza("SAV", "La savoyarde", 11.50),
+				new Pizza("ORI", "L'orientale", 11.50),
+				new Pizza("IND", "L'indienne", 11.50)
 		};
 		this.pizzas = pizzas;
 	}

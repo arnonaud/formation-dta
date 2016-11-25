@@ -5,6 +5,12 @@ import java.util.Scanner;
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoTableau;
 
+/**
+ * Class IhmUtil avec attribut Scanner et PizzaDAO
+ * 
+ * @author Arnaud
+ *
+ */
 public class IhmUtil {
 	
 	

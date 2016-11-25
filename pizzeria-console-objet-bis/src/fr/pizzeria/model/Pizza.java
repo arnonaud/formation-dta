@@ -1,15 +1,21 @@
 package fr.pizzeria.model;
 
+
+/**
+ * Definition d'une pizza
+ * @author Arnaud
+ *
+ */
 public class Pizza {
 
-	private int id;
+	private Integer id;
 	private String code;
 	private String nom;
 	private double prix;
 	private static int nbPizzas;
 	
-	public Pizza(int id, String code, String nom, double prix) {
-		this.id = id;
+	public Pizza(String code, String nom, double prix) {
+		this.id = nbPizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;

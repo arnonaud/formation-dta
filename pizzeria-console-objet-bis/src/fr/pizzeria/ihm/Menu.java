@@ -6,11 +6,31 @@ import fr.pizzeria.ihm.action.ListerPizzas;
 import fr.pizzeria.ihm.action.MiseAJour;
 import fr.pizzeria.ihm.action.Supprimer;
 
+/**
+ * Class menu représentant le démarrage de l'application,
+ * @author Arnaud
+ *
+ */
+
 public class Menu {
 
+	/**
+	 * Liste des différentes actions
+	 * @see Action
+	 */
 	private Action[] menu = new Action[5];
+	
+	
+	/**
+	 * @see IhmUtil
+	 */
 	private IhmUtil ihmUtil;
 	
+	
+	/**
+	 * Constructeur avec création des differentes Action possibles (lister, ajouter, mise à jour, suppression)
+	 * @param ihmUtil
+	 */
 	public Menu(IhmUtil ihmUtil) {
 			
 		this.ihmUtil = ihmUtil;
@@ -21,7 +41,10 @@ public class Menu {
 		this.menu[4] = new Supprimer(ihmUtil);
 	}
 	
-	public void execAction() {
+	/**
+	 * Permet de lancer l'action saisie par l'utilisateur
+	 */
+	private void execAction() {
 		
 		int choix = Integer.parseInt(this.ihmUtil.getScanner().nextLine());
 		if(choix != 99){
@@ -31,6 +54,9 @@ public class Menu {
 		
 	}
 	
+	/**
+	 * Demarrage de l'application avec affichage du menu et appel à execAction()
+	 */
 	public void demarrer() {
 		System.out.println();
 		System.out.println("*****Pizzeria Administration*****");
