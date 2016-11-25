@@ -1,12 +1,19 @@
 package fr.pizzeria.ihm.action;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
+/**
+ * Classe heritant de Action permettant la suppression d'une pizza
+ * 
+ * @see Action
+ * @author Arnaud
+ *
+ */
 public class Supprimer extends Action {
 
 	private IhmUtil ihmUtil;
@@ -29,10 +36,10 @@ public class Supprimer extends Action {
 		String codePizza = this.ihmUtil.getScanner().nextLine();
 		if(!codePizza.equals("99")){
 			List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
-
 			//index de la pizza à supprimer
 			int i=0;
-			while((i<pizzas.size())&&(codePizza.equals(pizzas.get(i).getCode()) == false))
+		    Iterator<Pizza> iterator = pizzas.iterator();
+		    while((i<pizzas.size())&&(!codePizza.equals(iterator.next().getCode())))
 			{
 				i++;
 			}	

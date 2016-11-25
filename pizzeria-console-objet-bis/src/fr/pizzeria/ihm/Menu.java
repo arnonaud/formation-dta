@@ -22,7 +22,6 @@ public class Menu {
 	 * Liste des différentes actions
 	 * @see Action
 	 */
-	//private Action[] menu = new Action[5];
 	private Map<Integer, Action> menu;
 	
 	/**
