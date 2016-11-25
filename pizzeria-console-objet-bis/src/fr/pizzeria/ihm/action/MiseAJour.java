@@ -1,8 +1,10 @@
 package fr.pizzeria.ihm.action;
 
-
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -17,7 +19,7 @@ public class MiseAJour extends Action{
 	
 	
 	@Override
-	public void executerAction() {
+	public void executerAction() throws StockageException {
 		System.out.println("mise à jour d'une pizza");
 		//Listing de toute les pizzas
 		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
@@ -31,12 +33,13 @@ public class MiseAJour extends Action{
 		String codePizza = sc.nextLine();
 		if(!codePizza.equals("99")){
 			int i=0;
-			Pizza[] pizzas = this.ihmUtil.getPizzaDao().findAll();
-			while(codePizza.equals(pizzas[i].getCode()) == false)
-			{
-				i++;
-			}
-			
+		    List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
+		    Iterator<Pizza> iterator = pizzas.iterator();
+		    while((i<pizzas.size())&&(!codePizza.equals(iterator.next().getCode())))
+		    {
+		    	i++;
+		    }
+						
 			//Demande des saisies avec stockage des modifications
 			System.out.println("Veuillez saisir le code");
 			String code = sc.nextLine();
@@ -46,9 +49,11 @@ public class MiseAJour extends Action{
 			double prix = Double.parseDouble(sc.nextLine());
 			
 			Pizza pizza = new Pizza(code, nom, prix);
-			
+
 			this.ihmUtil.getPizzaDao().updatePizza(i, pizza);
 			System.out.println("Liste des pizzas modifiée");
+		
+			
 		}
 		
 	

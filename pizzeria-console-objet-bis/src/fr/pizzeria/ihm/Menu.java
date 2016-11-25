@@ -1,5 +1,9 @@
 package fr.pizzeria.ihm;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.Ajouter;
 import fr.pizzeria.ihm.action.ListerPizzas;
@@ -18,8 +22,8 @@ public class Menu {
 	 * Liste des différentes actions
 	 * @see Action
 	 */
-	private Action[] menu = new Action[5];
-	
+	//private Action[] menu = new Action[5];
+	private Map<Integer, Action> menu;
 	
 	/**
 	 * @see IhmUtil
@@ -34,11 +38,11 @@ public class Menu {
 	public Menu(IhmUtil ihmUtil) {
 			
 		this.ihmUtil = ihmUtil;
-		
-		this.menu[1] = new ListerPizzas(ihmUtil);
-		this.menu[2] = new Ajouter(ihmUtil);
-		this.menu[3] = new MiseAJour(ihmUtil);
-		this.menu[4] = new Supprimer(ihmUtil);
+		menu = new HashMap<>();
+		menu.put(1, new ListerPizzas(ihmUtil));
+		menu.put(2, new Ajouter(ihmUtil));
+		menu.put(3, new MiseAJour(ihmUtil));
+		menu.put(4, new Supprimer(ihmUtil));
 	}
 	
 	/**
@@ -48,10 +52,14 @@ public class Menu {
 		
 		int choix = Integer.parseInt(this.ihmUtil.getScanner().nextLine());
 		if(choix != 99){
-			this.menu[choix].executerAction();
+			try {
+				menu.get(choix).executerAction();
+			} catch (StockageException e) {
+				e.getMsg();
+			}
+			
 			demarrer();
 		}
-		
 	}
 	
 	/**

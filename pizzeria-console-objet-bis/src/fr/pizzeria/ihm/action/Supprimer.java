@@ -1,5 +1,9 @@
 package fr.pizzeria.ihm.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -24,14 +28,19 @@ public class Supprimer extends Action {
 		
 		String codePizza = this.ihmUtil.getScanner().nextLine();
 		if(!codePizza.equals("99")){
-			Pizza[] pizzas = this.ihmUtil.getPizzaDao().findAll();
+			List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
+
 			//index de la pizza à supprimer
 			int i=0;
-			while(codePizza.equals(pizzas[i].getCode()) == false)
+			while((i<pizzas.size())&&(codePizza.equals(pizzas.get(i).getCode()) == false))
 			{
 				i++;
 			}	
-			this.ihmUtil.getPizzaDao().deletePizza(i);
+			try {
+				this.ihmUtil.getPizzaDao().deletePizza(i);
+			} catch (StockageException e) {
+				e.getMsg();
+			}
 		}
 		
 	

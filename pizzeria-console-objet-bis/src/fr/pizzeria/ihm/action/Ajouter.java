@@ -1,6 +1,8 @@
 package fr.pizzeria.ihm.action;
 
 
+
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -27,7 +29,12 @@ public class Ajouter extends Action{
 		
 		//crée l'objet pizza à partir de la saisie
 		Pizza p = new Pizza(code,nom,Integer.parseInt(prix));
-		this.ihmUtil.getPizzaDao().save(p);
+		try {
+			this.ihmUtil.getPizzaDao().save(p);
+		} catch (StockageException e) {
+			e.getMsg();
+		}
+	
 		
 	}
 

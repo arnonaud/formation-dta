@@ -1,66 +1,77 @@
 package fr.pizzeria.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.exception.SavePizzaException;
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoTableau implements PizzaDao{
 
-	private Pizza[] pizzas = {};
+	private List<Pizza> pizzas;
 	
 	
 	public PizzaDaoTableau() {
-		Pizza pizzas[] =  {
-				new Pizza("PEP", "Pépéroni", 12.50),
-				new Pizza("MAR", "Margherita", 14.00),
-				new Pizza("REI", "La Reine", 11.50),
-				new Pizza("FRO", "La 4 fromages", 11.50),
-				new Pizza("CAN", "La cannibale", 11.50),
-				new Pizza("SAV", "La savoyarde", 11.50),
-				new Pizza("ORI", "L'orientale", 11.50),
-				new Pizza("IND", "L'indienne", 11.50)
-		};
+		ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
+		pizzas.add(new Pizza("PEP", "Pépéroni", 12.50));
+		pizzas.add(new Pizza("MAR", "Margherita", 14.00));
+		pizzas.add(new Pizza("REI", "La Reine", 11.50));
+		pizzas.add(new Pizza("FRO", "La 4 fromages", 11.50));
+		pizzas.add(new Pizza("CAN", "La cannibale", 11.50));
+		pizzas.add(new Pizza("SAV", "La savoyarde", 11.50));
+		pizzas.add(new Pizza("ORI", "L'orientale", 11.50));
+		pizzas.add(new Pizza("IND", "L'indienne", 11.50));
+		
 		this.pizzas = pizzas;
 	}
 	
 	
 	@Override
-	public Pizza[] findAll() {
+	public List<Pizza> findAll() {
 		return pizzas;
 	}
 
 	@Override
-	public void save(Pizza p) {
-		//Création d'un nouveau tableau temporaire et ajout des anciennes valeurs de pizzas
-		Pizza[] newPizzas;
-		newPizzas = new Pizza[Pizza.getNbPizzas()+1];
-		for(int i=0; i<Pizza.getNbPizzas(); i++) {
-			newPizzas[i] = pizzas[i];
-		}
-		newPizzas[Pizza.getNbPizzas()] = p;
-		this.pizzas = newPizzas;
+	public void save(Pizza p) throws SavePizzaException {
 		
+		if(p.getCode().length()!=3) {
+			throw new SavePizzaException();
+		}
+		else {
+			
+			this.pizzas.add(p);
+		}
+		
+	}
+
+	
+	@Override
+	public void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException {
+	
+		if(indice > this.pizzas.size()-1){
+			throw new UpdatePizzaException();
+		}
+		else{
+			this.pizzas.set(indice,pizza);
+		}	
 	}
 
 
 	@Override
-	public void updatePizza(int indice, Pizza pizza) {
-		this.pizzas[indice] = pizza;
+	public void deletePizza(int indice) throws DeletePizzaException {
 		
-	}
-
-
-	@Override
-	public void deletePizza(int indice) {
-		//Création d'un nouveau tableau temporaire avec suppression de la pizza voulue
-		Pizza[] newPizzas = new Pizza[(Pizza.getNbPizzas()-1)];
-		int indexNewPizza = 0;
-		for(int j=0; j<Pizza.getNbPizzas(); j++) {
-			if(j!=indice){
-				newPizzas[indexNewPizza] = pizzas[j];
-				indexNewPizza++;
-			}
+		if(this.pizzas.size()<=indice) {
+			throw new DeletePizzaException();
+		}
+		else {
+			
+			this.pizzas.remove(indice);
+			
 		}
 		
-		this.pizzas = newPizzas;
+		
 		
 	}
 	
