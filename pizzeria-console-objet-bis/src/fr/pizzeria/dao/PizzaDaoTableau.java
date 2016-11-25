@@ -8,11 +8,10 @@ import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDaoTableau implements PizzaDao{
+public class PizzaDaoTableau implements PizzaDao {
 
 	private List<Pizza> pizzas;
-	
-	
+
 	public PizzaDaoTableau() {
 		ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
 		pizzas.add(new Pizza("PEP", "Pépéroni", 12.50));
@@ -23,11 +22,10 @@ public class PizzaDaoTableau implements PizzaDao{
 		pizzas.add(new Pizza("SAV", "La savoyarde", 11.50));
 		pizzas.add(new Pizza("ORI", "L'orientale", 11.50));
 		pizzas.add(new Pizza("IND", "L'indienne", 11.50));
-		
+
 		this.pizzas = pizzas;
 	}
-	
-	
+
 	@Override
 	public List<Pizza> findAll() {
 		return pizzas;
@@ -35,45 +33,37 @@ public class PizzaDaoTableau implements PizzaDao{
 
 	@Override
 	public void save(Pizza p) throws SavePizzaException {
-		
-		if(p.getCode().length()!=3) {
+
+		if (p.getCode().length() != 3) {
 			throw new SavePizzaException();
-		}
-		else {
-			
+		} else {
+
 			this.pizzas.add(p);
 		}
-		
+
 	}
 
-	
 	@Override
 	public void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException {
-	
-		if(indice > this.pizzas.size()-1){
-			throw new UpdatePizzaException();
-		}
-		else{
-			this.pizzas.set(indice,pizza);
-		}	
-	}
 
+		if (indice > this.pizzas.size() - 1) {
+			throw new UpdatePizzaException();
+		} else {
+			this.pizzas.set(indice, pizza);
+		}
+	}
 
 	@Override
 	public void deletePizza(int indice) throws DeletePizzaException {
-		
-		if(this.pizzas.size()<=indice) {
+
+		if (this.pizzas.size() <= indice) {
 			throw new DeletePizzaException();
-		}
-		else {
-			
+		} else {
+
 			this.pizzas.remove(indice);
-			
+
 		}
-		
-		
-		
+
 	}
-	
 
 }

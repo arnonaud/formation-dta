@@ -1,8 +1,8 @@
 package fr.pizzeria.model;
 
-
 /**
  * Definition d'une pizza
+ * 
  * @author Arnaud
  *
  */
@@ -13,7 +13,7 @@ public class Pizza {
 	private String nom;
 	private double prix;
 	private static int nbPizzas;
-	
+
 	public Pizza(String code, String nom, double prix) {
 		this.id = nbPizzas;
 		this.code = code;
@@ -54,8 +54,8 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	public void afficherPizza(){
-		System.out.println(this.code + " -> " + this.nom +  " (" + this.prix + "€)");
+	public void afficherPizza() {
+		System.out.println(this.code + " -> " + this.nom + " (" + this.prix + "€)");
 	}
 
 	public static int getNbPizzas() {
@@ -65,9 +65,9 @@ public class Pizza {
 	public static void addNbPizzas() {
 		Pizza.nbPizzas++;
 	}
+
 	public static void supNbPizzas() {
 		Pizza.nbPizzas--;
 	}
-	
-	
+
 }

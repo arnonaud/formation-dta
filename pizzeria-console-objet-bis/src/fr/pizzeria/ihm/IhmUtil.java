@@ -12,12 +12,10 @@ import fr.pizzeria.dao.PizzaDaoTableau;
  *
  */
 public class IhmUtil {
-	
-	
+
 	private Scanner scanner;
 	private PizzaDao pizzaDao;
-	
-	
+
 	public IhmUtil(Scanner scanner, PizzaDaoTableau pizzaDaoTableau) {
 		super();
 		this.scanner = scanner;
@@ -32,5 +30,4 @@ public class IhmUtil {
 		return pizzaDao;
 	}
 
-	
 }
