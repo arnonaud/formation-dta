@@ -5,12 +5,12 @@ import fr.pizzeria.service.Service;
 public class AbstractFactory {
 	private Service service;
 
-	public AbstractFactory(Service service){
+	public AbstractFactory(Service service) {
 		this.service = service;
-		
+
 	}
-	
-	public Service getService(){
+
+	public Service getService() {
 		return this.service;
 	}
 }

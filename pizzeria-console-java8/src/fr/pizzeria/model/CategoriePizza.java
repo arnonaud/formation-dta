@@ -1,16 +1,19 @@
 package fr.pizzeria.model;
 
 public enum CategoriePizza {
-	VIANDE ("Viande"), POISSON ("Poisson"), SANS_VIANDE ("Sans Viande");
-	
+	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande");
+
 	private String name;
-	private CategoriePizza(String value){
+
+	private CategoriePizza(String value) {
 		this.name = value;
 	}
-	public void setName(String name){
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	public String toString(){
+
+	public String toString() {
 		return name;
 	}
 }

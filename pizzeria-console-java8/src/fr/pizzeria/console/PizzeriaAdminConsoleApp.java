@@ -13,10 +13,10 @@ public class PizzeriaAdminConsoleApp {
 
 	public static void main(String[] args) {
 
-		 //AbstractFactory factory = new TableauFactory();
-	    AbstractFactory factory = new FichierFactory();
-		
-	    PizzaDao pizzaDao = factory.getService().getPizzas();
+		// AbstractFactory factory = new TableauFactory();
+		AbstractFactory factory = new FichierFactory();
+
+		PizzaDao pizzaDao = factory.getService().getPizzas();
 		Scanner sc = new Scanner(System.in);
 		IhmUtil ihmUtil = new IhmUtil(sc, pizzaDao);
 

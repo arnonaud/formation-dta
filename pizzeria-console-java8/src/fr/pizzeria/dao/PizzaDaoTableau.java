@@ -57,12 +57,7 @@ public class PizzaDaoTableau implements PizzaDao {
 	@Override
 	public void deletePizza(String codePizza) throws DeletePizzaException {
 
-		int indice = pizzas.indexOf
-				(pizzas.stream()
-						.filter(p -> p.getCode().equals(codePizza))
-						.findFirst()
-						.get()
-				);
+		int indice = pizzas.indexOf(pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get());
 		if (this.pizzas.size() <= indice) {
 			throw new DeletePizzaException();
 		} else {

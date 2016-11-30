@@ -1,6 +1,5 @@
 package fr.pizzeria.ihm.action;
 
-
 import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.ihm.IhmUtil;
 

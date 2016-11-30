@@ -1,4 +1,5 @@
 package fr.pizzeria.model;
+
 /**
  * Definition d'une pizza
  * 
@@ -21,7 +22,7 @@ public class Pizza {
 		this.prix = prix;
 		Pizza.nbPizzas = 8;
 		this.categorie = categorie;
-		
+
 	}
 
 	public CategoriePizza getCategorie() {
@@ -64,8 +65,6 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	
-
 	public static int getNbPizzas() {
 		return nbPizzas;
 	}
@@ -77,8 +76,8 @@ public class Pizza {
 	public static void supNbPizzas() {
 		Pizza.nbPizzas--;
 	}
-	
+
 	public void afficherPizza() {
-		System.out.println(this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : "+this.categorie);
+		System.out.println(this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : " + this.categorie);
 	}
 }
