@@ -15,5 +15,5 @@ public interface PizzaDao {
 
 	void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException;
 
-	void deletePizza(int indice) throws DeletePizzaException;
+	void deletePizza(String codePizza) throws DeletePizzaException;
 }

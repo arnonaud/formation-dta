@@ -16,10 +16,10 @@ public class IhmUtil {
 	private Scanner scanner;
 	private PizzaDao pizzaDao;
 
-	public IhmUtil(Scanner scanner, PizzaDaoTableau pizzaDaoTableau) {
+	public IhmUtil(Scanner scanner, PizzaDao pizzaDao) {
 		super();
 		this.scanner = scanner;
-		this.pizzaDao = pizzaDaoTableau;
+		this.pizzaDao = pizzaDao;
 	}
 
 	public Scanner getScanner() {

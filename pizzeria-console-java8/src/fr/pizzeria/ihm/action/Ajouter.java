@@ -28,19 +28,17 @@ public class Ajouter extends Action {
 		System.out.println("Veuillez saisir la catégorie (Viande, Poisson, Sans Viande)");
 		String categorie = this.ihmUtil.getScanner().nextLine();
 		CategoriePizza cat;
-		if(categorie.equals("Viande")){
-			 cat = CategoriePizza.VIANDE;
-		}
-		else if(categorie.equals("Poisson")) {
-			 cat = CategoriePizza.POISSON;
-		}
-		else if(categorie.equals("Sans Viande")){
-			 cat = CategoriePizza.SANS_VIANDE;
-		}
-		else throw new SavePizzaException();
-		
+		if (categorie.equals("Viande")) {
+			cat = CategoriePizza.VIANDE;
+		} else if (categorie.equals("Poisson")) {
+			cat = CategoriePizza.POISSON;
+		} else if (categorie.equals("Sans Viande")) {
+			cat = CategoriePizza.SANS_VIANDE;
+		} else
+			throw new SavePizzaException();
+
 		// crée l'objet pizza à partir de la saisie
-		Pizza p = new Pizza(code, nom, Double.parseDouble(prix),cat);
+		Pizza p = new Pizza(code, nom, Double.parseDouble(prix), cat);
 		try {
 			this.ihmUtil.getPizzaDao().save(p);
 		} catch (StockageException e) {
