@@ -22,6 +22,7 @@ public class PizzaDaoFichier implements PizzaDao {
 
 	public PizzaDaoFichier() {
 		List<Pizza> pizzas = new ArrayList<Pizza>();
+
 		String[] listefichiers;
 		File repertoire = new File("data");
 		listefichiers = repertoire.list();
@@ -37,15 +38,9 @@ public class PizzaDaoFichier implements PizzaDao {
 				String[] valeurs = ligne.split(";");
 
 				CategoriePizza cat = null;
-				if (valeurs[2].equals("Viande")) {
-					cat = CategoriePizza.VIANDE;
-				} else if (valeurs[2].equals("Poisson")) {
-					cat = CategoriePizza.POISSON;
-				} else if (valeurs[2].equals("Sans Viande")) {
-					cat = CategoriePizza.SANS_VIANDE;
-				}
-
+				cat = CategoriePizza.valueOf(valeurs[2].replaceAll(" ", "_").toUpperCase());
 				pizzas.add(new Pizza(f.substring(0, f.length() - 4), valeurs[0], Double.parseDouble(valeurs[1]), cat));
+				
 				br.close();
 			} catch (Exception e) {
 				e.printStackTrace();
