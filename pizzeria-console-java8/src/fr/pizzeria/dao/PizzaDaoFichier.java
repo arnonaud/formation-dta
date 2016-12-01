@@ -1,11 +1,9 @@
 package fr.pizzeria.dao;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,18 +28,11 @@ public class PizzaDaoFichier implements PizzaDao {
 
 		fichiers.stream().forEach(f -> {
 			try {
-				InputStream ips = new FileInputStream("data/" + f);
-				InputStreamReader ipsr = new InputStreamReader(ips);
-				BufferedReader br = new BufferedReader(ipsr);
-
-				String ligne = br.readLine();
-				String[] valeurs = ligne.split(";");
-
-				CategoriePizza cat = null;
-				cat = CategoriePizza.valueOf(valeurs[2].replaceAll(" ", "_").toUpperCase());
+				List<String> ligne = Files.readAllLines(Paths.get("data/" + f));
+				String[] valeurs = ligne.get(0).split(";");
+				CategoriePizza cat = CategoriePizza.valueOf(valeurs[2].replaceAll(" ", "_").toUpperCase());
 				pizzas.add(new Pizza(f.substring(0, f.length() - 4), valeurs[0], Double.parseDouble(valeurs[1]), cat));
-				
-				br.close();
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -65,11 +56,12 @@ public class PizzaDaoFichier implements PizzaDao {
 
 			this.pizzas.add(p);
 
-			File f = new File("data/" + p.getCode() + ".txt");
+			
 			try {
-				FileWriter fw = new FileWriter(f);
-				fw.write(p.getNom() + ";" + p.getPrix() + ";" + p.getCategorie());
-				fw.close();
+				List<String> ligne = new ArrayList<String>();
+				ligne.add(p.getNom() + ";" + p.getPrix() + ";" + p.getCategorie());
+				Files.write(Paths.get("data/" + p.getCode() + ".txt"),ligne);
+
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -80,7 +72,7 @@ public class PizzaDaoFichier implements PizzaDao {
 
 	@Override
 	public void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException {
-
+		//TODO correction file save doesn't work
 		if (indice > this.pizzas.size() - 1) {
 			throw new UpdatePizzaException();
 		} else {
