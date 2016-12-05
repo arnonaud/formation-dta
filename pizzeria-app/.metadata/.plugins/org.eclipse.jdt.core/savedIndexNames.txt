@@ -1,0 +1,1 @@
+INDEX VERSION 1.129+C:\Projets\formation-dta\pizzeria-app\.metadata\.plugins\org.eclipse.jdt.core

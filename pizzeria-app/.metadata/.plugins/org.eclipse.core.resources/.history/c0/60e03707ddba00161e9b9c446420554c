@@ -1,0 +1,16 @@
+package pizzeria.pizzeria_dao;
+
+import java.util.List;
+
+import pizzeria.pizzeria_model.Pizza;
+
+public interface PizzaDao {
+
+	List<Pizza> findAll();
+
+	void save(Pizza p) throws SavePizzaException;
+
+	void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException;
+
+	void deletePizza(String codePizza) throws DeletePizzaException;
+}

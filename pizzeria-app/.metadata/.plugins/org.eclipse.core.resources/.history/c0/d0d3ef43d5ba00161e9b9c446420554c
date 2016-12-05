@@ -1,0 +1,12 @@
+package fr.pizzeria.service;
+
+
+
+public class ServiceTableau implements Service {
+
+	@Override
+	public PizzaDao getPizzas() {
+		return new PizzaDaoTableau();
+	}
+
+}
