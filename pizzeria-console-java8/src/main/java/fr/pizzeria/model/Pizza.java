@@ -3,7 +3,7 @@ package fr.pizzeria.model;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import fr.pizzeria.dao.PizzaDaoTableau;
+
 
 /**
  * Definition d'une pizza

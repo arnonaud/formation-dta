@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import dta.chat.controller.ChatAuthController;
 
-public class ChatConsoleView extends ViewComposite {
+public class ChatConsoleView extends ViewComposite{
 	
 	private ChatConsoleTitleView titleView;
 	private ChatConsoleConversationView conversationView;
@@ -27,5 +27,6 @@ public class ChatConsoleView extends ViewComposite {
 		this.conversationView.sayWelcome(login);
 	}
 
+	
 	
 }
