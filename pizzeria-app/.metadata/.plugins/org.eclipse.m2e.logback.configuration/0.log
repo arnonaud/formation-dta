@@ -4671,3 +4671,119 @@ Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was
 2016-12-05 15:02:19,465 [Worker-156] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\main\resources
 2016-12-05 15:02:19,466 [Worker-156] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-12-05 15:02:19,472 [Worker-156] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:45:35,026 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:45:35,027 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\main\resources
+2016-12-05 15:45:35,027 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:45:35,036 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:46:37,995 [Worker-169] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:46:38,009 [Worker-169] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\main\resources
+2016-12-05 15:46:38,020 [Worker-169] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:46:38,028 [Worker-169] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:48:22,806 [Worker-176] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dta:pizzeria-console-java8:1.0.0 @ C:\Projets\formation-dta\pizzeria-console-java8\pom.xml.
+2016-12-05 15:48:22,928 [Worker-176] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:48:22,939 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:48:22,943 [Worker-176] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:48:22,959 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:48:23,366 [Worker-173] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dta:pizzeria-console-java8:1.0.0 @ C:\Projets\formation-dta\pizzeria-console-java8\pom.xml.
+2016-12-05 15:48:24,128 [Worker-171] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:48:24,141 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:48:24,146 [Worker-171] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:48:24,159 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:49:09,312 [Worker-178] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dta:pizzeria-console-java8:1.0.0 @ C:\Projets\formation-dta\pizzeria-console-java8\pom.xml.
+2016-12-05 15:49:09,557 [Worker-178] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:49:09,578 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:49:09,584 [Worker-178] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:49:09,599 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:49:09,888 [Worker-171] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dta:pizzeria-console-java8:1.0.0 @ C:\Projets\formation-dta\pizzeria-console-java8\pom.xml.
+2016-12-05 15:49:10,907 [Worker-176] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:49:10,915 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:49:10,916 [Worker-176] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-05 15:49:10,928 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:49:57,674 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:49:57,689 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:49:57,699 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:49:57,705 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:50:00,574 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:50:00,575 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:50:00,636 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:50:00,646 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:51:00,771 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:51:00,785 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-05 15:51:00,793 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:51:00,800 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:52:23,782 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:52:23,782 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:52:23,784 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:52:23,790 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:52:44,977 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:52:44,984 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:52:44,992 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:52:44,998 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:52:50,771 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:52:50,772 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:52:50,772 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:52:50,777 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:53:51,589 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:53:51,592 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:53:51,598 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:53:51,601 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:54:24,333 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:24,334 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:54:24,335 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:24,341 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:54:27,017 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:27,028 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:54:27,038 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:27,043 [Worker-171] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:54:34,361 [Worker-183] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:34,362 [Worker-183] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:54:34,363 [Worker-183] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:34,369 [Worker-183] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:54:45,582 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:45,588 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:54:45,595 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:54:45,601 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:55:03,854 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:55:03,855 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:55:03,855 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:55:03,861 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:56:00,422 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:56:00,430 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:56:00,436 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:56:00,441 [Worker-180] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:56:51,200 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:56:51,201 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:56:51,202 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:56:51,211 [Worker-176] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:56:56,535 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:56:56,540 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:56:56,545 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:56:56,550 [Worker-178] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:57:04,389 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:57:04,390 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:57:04,390 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:57:04,398 [Worker-173] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:57:26,275 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:57:26,282 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:57:26,290 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:57:26,295 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 15:58:30,074 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:58:30,075 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 15:58:30,076 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 15:58:30,082 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 16:00:01,885 [Worker-175] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:00:01,899 [Worker-175] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 16:00:01,906 [Worker-175] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:00:01,911 [Worker-175] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 16:00:50,836 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:00:50,836 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 16:00:50,837 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:00:50,842 [Worker-182] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 16:00:58,694 [Worker-181] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:00:58,699 [Worker-181] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 16:00:58,706 [Worker-181] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:00:58,710 [Worker-181] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 16:01:12,837 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:01:12,838 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 16:01:12,839 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 16:01:12,844 [Worker-179] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
