@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pizzeria</groupId>
 	<artifactId>pizzeria-app</artifactId>
-	<version>1.1</version>
+	<version>1</version>
 	<modules>
 			<module>pizzeria-console</module>
 			<module>pizzeria-dao</module>
