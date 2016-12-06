@@ -4,11 +4,11 @@
 
 <parent>
 	<groupId>pizzeria</groupId>
-	<artifactId>pizzeria-app</artifactId>
+	<artifactId>arnaud-pizzeria-app</artifactId>
 	<version>1</version>
 	<relativePath>../pom.xml</relativePath>
 </parent>
-  <artifactId>pizzeria-dao</artifactId>
+  <artifactId>arnaud-pizzeria-dao</artifactId>
 
   <name>pizzeria-dao</name>
   <url>http://maven.apache.org</url>
@@ -20,7 +20,7 @@
   <dependencies>
 	<dependency>
 		<groupId>${project.groupId}</groupId>
-		<artifactId>pizzeria-model</artifactId>
+		<artifactId>arnaud-pizzeria-model</artifactId>
 	</dependency>
   </dependencies>
 </project>

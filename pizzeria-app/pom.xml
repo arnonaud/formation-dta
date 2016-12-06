@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pizzeria</groupId>
-	<artifactId>pizzeria-app</artifactId>
+	<artifactId>arnaud-pizzeria-app</artifactId>
 	<version>1</version>
 	<modules>
 			<module>pizzeria-console</module>
@@ -35,12 +35,12 @@
 		<dependencies>
 			<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>pizzeria-model</artifactId>
+			<artifactId>arnaud-pizzeria-model</artifactId>
 			<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>pizzeria-dao</artifactId>
+				<artifactId>arnaud-pizzeria-dao</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			

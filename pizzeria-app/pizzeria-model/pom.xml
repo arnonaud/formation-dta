@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 <parent>
 	<groupId>pizzeria</groupId>
-	<artifactId>pizzeria-app</artifactId>
+	<artifactId>arnaud-pizzeria-app</artifactId>
 	<version>1</version>
 	<relativePath>../pom.xml</relativePath>
 </parent>
-  <artifactId>pizzeria-model</artifactId>
+  <artifactId>arnaud-pizzeria-model</artifactId>
 
   <name>pizzeria-model</name>
   <url>http://maven.apache.org</url>
