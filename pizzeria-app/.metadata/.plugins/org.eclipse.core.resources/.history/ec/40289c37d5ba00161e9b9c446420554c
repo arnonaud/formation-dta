@@ -1,7 +1,0 @@
-package fr.pizzeria.service;
-
-
-
-public interface Service {
-	PizzaDao getPizzas();
-}

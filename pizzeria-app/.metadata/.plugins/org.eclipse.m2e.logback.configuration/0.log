@@ -5622,3 +5622,63 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2016-12-05 16:55:52,700 [Worker-236] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2016-12-05 16:55:52,705 [Worker-236] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-12-05 16:55:52,705 [Worker-236] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
+2016-12-05 17:03:19,097 [Worker-247] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-12-05 17:03:19,104 [Worker-247] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2016-12-05 17:03:49,379 [Worker-243] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Failed to read Maven project: 1 problem was encountered while building the effective model for pizzeria:pizzeria-console:[unknown-version]
+[FATAL] Non-parseable POM C:\Projets\formation-dta\pizzeria-app\pom.xml: end tag name </profile> must match start tag name <properties> from line 66 (position: TEXT seen ...<properties>\r\n\t\t</profile>... @67:13)  @ C:\Projets\formation-dta\pizzeria-app\pom.xml, line 67, column 13
+ for project pizzeria:pizzeria-console:[unknown-version] at C:\Projets\formation-dta\pizzeria-app\pizzeria-console\pom.xml
+org.apache.maven.project.ProjectBuildingException: 1 problem was encountered while building the effective model for pizzeria:pizzeria-console:[unknown-version]
+[FATAL] Non-parseable POM C:\Projets\formation-dta\pizzeria-app\pom.xml: end tag name </profile> must match start tag name <properties> from line 66 (position: TEXT seen ...<properties>\r\n\t\t</profile>... @67:13)  @ C:\Projets\formation-dta\pizzeria-app\pom.xml, line 67, column 13
+ for project pizzeria:pizzeria-console:[unknown-version] at C:\Projets\formation-dta\pizzeria-app\pizzeria-console\pom.xml
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:168) ~[maven-core-3.3.9.jar:3.3.9]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:119) ~[maven-core-3.3.9.jar:3.3.9]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.readMavenProject(MavenImpl.java:636) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:816) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager$5.call(ProjectRegistryManager.java:1) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:176) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:151) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:99) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.execute(ProjectRegistryManager.java:967) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readProjectWithDependencies(ProjectRegistryManager.java:811) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.create(ProjectRegistryManager.java:192) ~[org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.internal.project.registry.MavenProjectManager.create(MavenProjectManager.java:80) [org.eclipse.m2e.core_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.core.ui.internal.actions.SelectionUtil.getMavenProject(SelectionUtil.java:259) [org.eclipse.m2e.core.ui_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor.readMavenProject(MavenPomEditor.java:732) [org.eclipse.m2e.editor_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.m2e.editor.pom.MavenPomEditor$5.run(MavenPomEditor.java:1053) [org.eclipse.m2e.editor_1.7.0.20160603-1933.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.apache.maven.model.building.ModelBuildingException: 1 problem was encountered while building the effective model for pizzeria:pizzeria-console:[unknown-version]
+[FATAL] Non-parseable POM C:\Projets\formation-dta\pizzeria-app\pom.xml: end tag name </profile> must match start tag name <properties> from line 66 (position: TEXT seen ...<properties>\r\n\t\t</profile>... @67:13)  @ C:\Projets\formation-dta\pizzeria-app\pom.xml, line 67, column 13
+
+	at org.apache.maven.model.building.DefaultModelProblemCollector.newModelBuildingException(DefaultModelProblemCollector.java:197) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.readModel(DefaultModelBuilder.java:579) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParentLocally(DefaultModelBuilder.java:868) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.readParent(DefaultModelBuilder.java:796) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.model.building.DefaultModelBuilder.build(DefaultModelBuilder.java:329) ~[maven-model-builder-3.3.9.jar:3.3.9]
+	at org.apache.maven.project.DefaultProjectBuilder.build(DefaultProjectBuilder.java:161) ~[maven-core-3.3.9.jar:3.3.9]
+	... 15 common frames omitted
+2016-12-05 17:03:56,632 [Worker-246] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-12-05 17:03:56,646 [Worker-246] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2016-12-05 17:04:17,905 [Worker-245] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2016-12-05 17:04:18,110 [Worker-245] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: pizzeria:pizzeria-console:1 @ C:\Projets\formation-dta\pizzeria-app\pizzeria-console\pom.xml.
+2016-12-05 17:04:18,163 [Worker-245] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: pizzeria:pizzeria-dao:1 @ C:\Projets\formation-dta\pizzeria-app\pizzeria-dao\pom.xml.
+2016-12-05 17:04:18,208 [Worker-245] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: pizzeria:pizzeria-model:1 @ C:\Projets\formation-dta\pizzeria-app\pizzeria-model\pom.xml.
+2016-12-05 17:04:18,734 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pizzeria-console/src/main/java
+2016-12-05 17:04:18,740 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pizzeria-console/src/main/resources
+2016-12-05 17:04:18,740 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pizzeria-console/src/test/java
+2016-12-05 17:04:18,763 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pizzeria-dao/src/main/java
+2016-12-05 17:04:18,763 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pizzeria-dao/src/test/java
+2016-12-05 17:04:18,785 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pizzeria-model/src/main/java
+2016-12-05 17:04:18,785 [Worker-245] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pizzeria-model/src/test/java
+2016-12-05 17:04:18,864 [Worker-245] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2016-12-05 17:04:19,009 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 17:04:19,009 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-model\src\main\resources
+2016-12-05 17:04:19,010 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 17:04:19,010 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-model\src\test\resources
+2016-12-05 17:04:19,281 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 17:04:19,287 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-dao\src\main\resources
+2016-12-05 17:04:19,288 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 17:04:19,288 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-dao\src\test\resources
+2016-12-05 17:04:19,351 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 17:04:19,351 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2016-12-05 17:04:19,361 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-05 17:04:19,361 [Worker-244] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Projets\formation-dta\pizzeria-app\pizzeria-console\src\test\resources
