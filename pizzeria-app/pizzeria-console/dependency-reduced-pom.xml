@@ -10,6 +10,12 @@
   <name>pizzeria-console</name>
   <url>http://maven.apache.org</url>
   <build>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
     <finalName>Pizzeria-java</finalName>
     <pluginManagement>
       <plugins>
@@ -63,6 +69,7 @@
     </dependency>
   </dependencies>
   <properties>
+    <daoType>fr.pizzeria.abstractfactory.TableauFactory</daoType>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
