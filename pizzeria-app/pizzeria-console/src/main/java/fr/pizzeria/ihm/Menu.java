@@ -41,7 +41,7 @@ public class Menu {
 
 		this.ihmUtil = ihmUtil;
 		menu = new HashMap<>();
-		menu.put(1, new ListerPizzas(ihmUti));
+		menu.put(1, new ListerPizzas(ihmUtil));
 		menu.put(2, new Ajouter(ihmUtil));
 		menu.put(3, new MiseAJour(ihmUtil));
 		menu.put(4, new Supprimer(ihmUtil));
