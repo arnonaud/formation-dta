@@ -140,7 +140,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 	@Override
 	public void importJdbc() throws PizzaException {
 
-		PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
+		/*PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
 		List<Pizza> pizzas = pizzaDaoFichier.findAll();
 		Connection connection;
 		try {
@@ -150,7 +150,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 			throw new PizzaException(e);
 		}
 
-		/*List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
+		List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
 		listPizzas.stream().forEach(l -> {
 			try {
 				connection.setAutoCommit(false);
