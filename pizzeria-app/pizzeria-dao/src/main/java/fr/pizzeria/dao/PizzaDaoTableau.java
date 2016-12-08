@@ -2,6 +2,7 @@ package fr.pizzeria.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
@@ -64,6 +65,12 @@ public class PizzaDaoTableau implements PizzaDao {
 
 		}
 
+	}
+
+	@Override
+	public void importJdbc() throws PizzaException {
+		Logger.getLogger(PizzaDaoJdbc.class.getName()).severe("Non implementé sous format tableau");
+		
 	}
 
 	

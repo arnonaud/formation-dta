@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+import org.apache.commons.collections4.ListUtils;
+
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -54,7 +56,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 			throw new PizzaException();
 		} else {
 
-			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);){
+			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);) {
 
 				String nom = p.getNom();
 				String code = p.getCode();
@@ -85,7 +87,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 			throw new PizzaException();
 		} else {
 
-			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);){
+			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);) {
 				String previousCode = findAll().get(indice).getCode();
 				String nom = pizza.getNom();
 				String code = pizza.getCode();
@@ -120,7 +122,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 		} else {
 
 			findAll().remove(indice);
-			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);){
+			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);) {
 
 				PreparedStatement deletePizza = connection.prepareStatement("DELETE FROM Pizza WHERE reference=?");
 				deletePizza.setString(1, codePizza);
@@ -132,6 +134,43 @@ public class PizzaDaoJdbc implements PizzaDao {
 			}
 
 		}
+
+	}
+
+	@Override
+	public void importJdbc() throws PizzaException {
+
+		PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
+		List<Pizza> pizzas = pizzaDaoFichier.findAll();
+		Connection connection;
+		try {
+			connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);
+		} catch (SQLException e) {
+			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+			throw new PizzaException(e);
+		}
+
+		List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
+		listPizzas.stream().forEach(l -> {
+			try {
+				connection.setAutoCommit(false);
+
+				save(l.get(0));
+				save(l.get(1));
+				save(l.get(2));
+				connection.commit();
+
+			} catch (SQLException e) {
+				try {
+					connection.rollback();
+				} catch (SQLException e1) {
+					Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+					throw new PizzaException(e);
+				}
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
+			}
+		});
 
 	}
 

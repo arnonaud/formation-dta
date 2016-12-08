@@ -14,4 +14,6 @@ public interface PizzaDao {
 	void updatePizza(int indice, Pizza pizza) throws PizzaException;
 
 	void deletePizza(String codePizza) throws PizzaException;
+	
+	void importJdbc() throws PizzaException;
 }

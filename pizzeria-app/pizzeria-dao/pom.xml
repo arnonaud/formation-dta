@@ -24,6 +24,10 @@
 			<groupId>${project.groupId}</groupId>
 			<artifactId>arnaud-pizzeria-model</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>

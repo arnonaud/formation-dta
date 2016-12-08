@@ -8,6 +8,7 @@ import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.Ajouter;
+import fr.pizzeria.ihm.action.ImportJdbc;
 import fr.pizzeria.ihm.action.ListerPizzas;
 import fr.pizzeria.ihm.action.MiseAJour;
 import fr.pizzeria.ihm.action.Supprimer;
@@ -47,6 +48,7 @@ public class Menu {
 		menu.put(2, new Ajouter(ihmUtil));
 		menu.put(3, new MiseAJour(ihmUtil));
 		menu.put(4, new Supprimer(ihmUtil));
+		menu.put(5, new ImportJdbc(ihmUtil));
 	}
 
 	/**
@@ -56,7 +58,7 @@ public class Menu {
 
 		int choix = Integer.parseInt(this.ihmUtil.getScanner().nextLine());
 		if (choix != 99) {
-			if (choix <= 4) {
+			if (choix <= 5) {
 				try {
 					menu.get(choix).executerAction();
 				} catch (PizzaException e) {
@@ -81,6 +83,7 @@ public class Menu {
 		System.out.println("2. Ajouter une nouvelle pizza");
 		System.out.println("3. Mettre à jour une pizza");
 		System.out.println("4. Supprimer une pizza");
+		System.out.println("5. Importer les données");
 		System.out.println("99. Sortir");
 		execAction();
 	}
