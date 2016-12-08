@@ -19,7 +19,7 @@ public class MiseAJour extends Action {
 
 	@Override
 	public void executerAction() throws StockageException {
-		System.out.println("mise � jour d'une pizza");
+		System.out.println("mise à jour d'une pizza");
 		// Listing de toute les pizzas
 		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
 		listerPizza.executerAction();
@@ -32,10 +32,10 @@ public class MiseAJour extends Action {
 		String codePizza = sc.nextLine();
 		if (!codePizza.equals("99")) {
 
-			// r�cuperation de l'indice de la pizza � modifier
+			// récuperation de l'indice de la pizza � modifier
 			List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
 			int indice = pizzas.indexOf(pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get());
-
+	
 			// Demande des saisies avec stockage des modifications
 			System.out.println("Veuillez saisir le code");
 			String code = sc.nextLine();

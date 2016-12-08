@@ -83,7 +83,7 @@ public class Pizza {
 	}
 
 	public void afficherPizza() {
-		System.out.println(this.code + " -> " + this.nom + " (" + this.prix + "�), categorie : " + this.categorie);
+		System.out.println(this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : " + this.categorie);
 	}
 	
 	@Override

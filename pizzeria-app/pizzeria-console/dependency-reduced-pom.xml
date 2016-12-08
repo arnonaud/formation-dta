@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>pizzeria-app</artifactId>
+    <artifactId>arnaud-pizzeria-app</artifactId>
     <groupId>pizzeria</groupId>
     <version>1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>pizzeria-console</artifactId>
+  <artifactId>arnaud-pizzeria-console</artifactId>
   <name>pizzeria-console</name>
   <url>http://maven.apache.org</url>
   <build>
@@ -69,7 +69,7 @@
     </dependency>
   </dependencies>
   <properties>
-    <daoType>fr.pizzeria.abstractfactory.TableauFactory</daoType>
+    <daoType>fr.pizzeria.abstractfactory.JdbcFactory</daoType>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>

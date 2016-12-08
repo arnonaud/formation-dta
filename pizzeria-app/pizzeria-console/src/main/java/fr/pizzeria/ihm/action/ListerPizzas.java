@@ -20,12 +20,12 @@ public class ListerPizzas extends Action {
 
 	@Override
 	public void executerAction() {
-		System.out.println("Liste des pizzas par cat�gorie");
+		System.out.println("Liste des pizzas par catégorie");
 
-		// r�cup�ration de toutes les pizzas
+		// récupétation de toutes les pizzas
 		List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
 
-		// affichage des pizzas par cat�gorie
+		// affichage des pizzas par catégorie
 
 		Comparator<Pizza> comparatorCategorie = Comparator.comparing(Pizza::getCategorie);
 		List<Pizza> list = pizzas.stream().sorted(comparatorCategorie).collect(Collectors.toList());

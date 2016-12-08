@@ -15,7 +15,7 @@ public class PizzaDaoTableau implements PizzaDao {
 	
 	public PizzaDaoTableau() {
 		List<Pizza> pizzas = new ArrayList<Pizza>();
-		pizzas.add(new Pizza("PEP", "TABLEAU P�p�roni", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza("PEP", "TABLEAU Pépéroni", 12.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza("MAR", "TABLEAU Margherita", 14.00, CategoriePizza.POISSON));
 		pizzas.add(new Pizza("REI", "TABLEAU La Reine", 11.50, CategoriePizza.SANS_VIANDE));
 		pizzas.add(new Pizza("FRO", "TABLEAU La 4 fromages", 11.50, CategoriePizza.VIANDE));

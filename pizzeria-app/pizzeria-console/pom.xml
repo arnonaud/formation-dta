@@ -16,7 +16,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <daoType>fr.pizzeria.abstractfactory.TableauFactory</daoType>
+    <daoType>fr.pizzeria.abstractfactory.JdbcFactory</daoType>
   </properties>
   <dependencies>
 	<dependency>
