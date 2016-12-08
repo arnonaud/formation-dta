@@ -150,7 +150,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 			throw new PizzaException(e);
 		}
 
-		List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
+		/*List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
 		listPizzas.stream().forEach(l -> {
 			try {
 				connection.setAutoCommit(false);
@@ -171,7 +171,8 @@ public class PizzaDaoJdbc implements PizzaDao {
 				throw new PizzaException(e);
 			}
 		});
-
+*/
+		Logger.getLogger(PizzaDaoJdbc.class.getName()).severe("Not Yet Implement");
 	}
 
 }
