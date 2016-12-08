@@ -17,27 +17,16 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoJdbc implements PizzaDao {
 
-	public Connection connection() throws PizzaException {
-		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
-		String jdbcAdress = bundle.getString("jdbc.adress");
-		String jdbcUser = bundle.getString("jdbc.user");
-		String jdbcPwd = bundle.getString("jdbc.pwd");
-		Connection connection;
-		try {
-			connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);
-
-		} catch (SQLException e) {
-			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
-			throw new PizzaException(e);
-		}
-		return connection;
-
-	}
+	private ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
+	private String jdbcAdress = bundle.getString("jdbc.adress");
+	private String jdbcUser = bundle.getString("jdbc.user");
+	private String jdbcPwd = bundle.getString("jdbc.pwd");
 
 	@Override
 	public List<Pizza> findAll() {
 		List<Pizza> pizzas = new ArrayList<Pizza>();
-		try (Connection connection = connection(); Statement statement = connection.createStatement()) {
+		try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);
+				Statement statement = connection.createStatement()) {
 
 			ResultSet resultats = statement.executeQuery("SELECT * FROM PIZZA");
 
@@ -52,7 +41,8 @@ public class PizzaDaoJdbc implements PizzaDao {
 
 			resultats.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+			throw new PizzaException(e);
 		}
 		return pizzas;
 	}
@@ -64,7 +54,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 			throw new PizzaException();
 		} else {
 
-			try (Connection connection = connection();) {
+			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);){
 
 				String nom = p.getNom();
 				String code = p.getCode();
@@ -95,7 +85,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 			throw new PizzaException();
 		} else {
 
-			try (Connection connection = connection();) {
+			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);){
 				String previousCode = findAll().get(indice).getCode();
 				String nom = pizza.getNom();
 				String code = pizza.getCode();
@@ -130,7 +120,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 		} else {
 
 			findAll().remove(indice);
-			try (Connection connection = connection();) {
+			try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);){
 
 				PreparedStatement deletePizza = connection.prepareStatement("DELETE FROM Pizza WHERE reference=?");
 				deletePizza.setString(1, codePizza);
