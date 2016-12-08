@@ -1,7 +1,10 @@
 package fr.pizzeria.ihm.action;
 
-import fr.pizzeria.exception.SavePizzaException;
-import fr.pizzeria.exception.StockageException;
+
+import java.util.logging.Logger;
+
+import fr.pizzeria.dao.PizzaDaoJdbc;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -15,7 +18,7 @@ public class Ajouter extends Action {
 	}
 
 	@Override
-	public void executerAction() throws SavePizzaException {
+	public void executerAction() throws PizzaException {
 		// demande saisie
 		System.out.println("Ajout d'une pizza");
 		System.out.println("Veuillez saisir le code");
@@ -32,8 +35,9 @@ public class Ajouter extends Action {
 		Pizza p = new Pizza(code, nom, Double.parseDouble(prix), cat);
 		try {
 			this.ihmUtil.getPizzaDao().save(p);
-		} catch (StockageException e) {
-			e.getMsg();
+		} catch (PizzaException e) {
+			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+			throw new PizzaException(e);
 		}
 
 	}

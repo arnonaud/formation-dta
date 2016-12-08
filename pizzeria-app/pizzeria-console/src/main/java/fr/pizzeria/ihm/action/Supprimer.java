@@ -1,6 +1,9 @@
 package fr.pizzeria.ihm.action;
 
-import fr.pizzeria.exception.StockageException;
+import java.util.logging.Logger;
+
+import fr.pizzeria.dao.PizzaDaoJdbc;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 
 
@@ -35,9 +38,9 @@ public class Supprimer extends Action {
 			try {
 				this.ihmUtil.getPizzaDao().deletePizza(codePizza);
 				System.out.println("Pizza suprim�e");
-			} catch (StockageException e) {
-				e.getMsg();
-			}
+			} catch (PizzaException e) {
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);			}
 		}
 
 	}

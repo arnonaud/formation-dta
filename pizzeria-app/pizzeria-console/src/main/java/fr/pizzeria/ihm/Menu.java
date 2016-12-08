@@ -2,8 +2,10 @@ package fr.pizzeria.ihm;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
-import fr.pizzeria.exception.StockageException;
+import fr.pizzeria.dao.PizzaDaoJdbc;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.Ajouter;
 import fr.pizzeria.ihm.action.ListerPizzas;
@@ -20,7 +22,7 @@ import fr.pizzeria.ihm.action.Supprimer;
 public class Menu {
 
 	/**
-	 * Liste des diff�rentes actions
+	 * Liste des différentes actions
 	 * 
 	 * @see Action
 	 */
@@ -32,8 +34,8 @@ public class Menu {
 	private IhmUtil ihmUtil;
 
 	/**
-	 * Constructeur avec cr�ation des differentes Action possibles (lister,
-	 * ajouter, mise � jour, suppression)
+	 * Constructeur avec création des differentes Action possibles (lister,
+	 * ajouter, mise à jour, suppression)
 	 * 
 	 * @param ihmUtil
 	 */
@@ -57,8 +59,9 @@ public class Menu {
 			if (choix <= 4) {
 				try {
 					menu.get(choix).executerAction();
-				} catch (StockageException e) {
-					e.getMsg();
+				} catch (PizzaException e) {
+					Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+					throw new PizzaException(e);
 				}
 			} else {
 				System.out.println("Commande non reconnu");
@@ -69,7 +72,7 @@ public class Menu {
 	}
 
 	/**
-	 * Demarrage de l'application avec affichage du menu et appel � execAction()
+	 * Demarrage de l'application avec affichage du menu et appel execAction()
 	 */
 	public void demarrer() {
 		System.out.println();

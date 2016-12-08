@@ -7,10 +7,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
-import fr.pizzeria.exception.DeletePizzaException;
-import fr.pizzeria.exception.SavePizzaException;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -49,9 +48,9 @@ public class PizzaDaoFichier implements PizzaDao {
 	}
 
 	@Override
-	public void save(Pizza p) throws SavePizzaException {
+	public void save(Pizza p) throws PizzaException {
 		if (p.getCode().length() != 3) {
-			throw new SavePizzaException();
+			throw new PizzaException();
 		} else {
 
 			this.pizzas.add(p);
@@ -63,7 +62,8 @@ public class PizzaDaoFichier implements PizzaDao {
 				Files.write(Paths.get("data/" + p.getCode() + ".txt"),ligne);
 
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
 			}
 
 		}
@@ -71,10 +71,10 @@ public class PizzaDaoFichier implements PizzaDao {
 	}
 
 	@Override
-	public void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException {
+	public void updatePizza(int indice, Pizza pizza) throws PizzaException {
 		//TODO correction file save doesn't work
 		if (indice > this.pizzas.size() - 1) {
-			throw new UpdatePizzaException();
+			throw new PizzaException();
 		} else {
 			this.pizzas.set(indice, pizza);
 			File f = new File("data/" + pizza.getCode() + ".txt");
@@ -83,20 +83,21 @@ public class PizzaDaoFichier implements PizzaDao {
 				fw.write(pizza.getNom() + ";" + pizza.getPrix() + ";" + pizza.getCategorie());
 				fw.close();
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
 			}
 		}
 
 	}
 
 	@Override
-	public void deletePizza(String codePizza) throws DeletePizzaException {
+	public void deletePizza(String codePizza) throws PizzaException {
 		if (codePizza == null) {
-			throw new DeletePizzaException();
+			throw new PizzaException();
 		} else {
 			int indice = pizzas.indexOf(pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get());
 			if (this.pizzas.size() <= indice) {
-				throw new DeletePizzaException();
+				throw new PizzaException();
 			} else {
 
 				this.pizzas.remove(indice);

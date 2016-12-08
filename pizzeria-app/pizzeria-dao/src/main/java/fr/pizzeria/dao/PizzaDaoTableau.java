@@ -3,9 +3,7 @@ package fr.pizzeria.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.pizzeria.exception.DeletePizzaException;
-import fr.pizzeria.exception.SavePizzaException;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -33,10 +31,10 @@ public class PizzaDaoTableau implements PizzaDao {
 	}
 
 	@Override
-	public void save(Pizza p) throws SavePizzaException {
+	public void save(Pizza p) throws PizzaException {
 
 		if (p.getCode().length() != 3) {
-			throw new SavePizzaException();
+			throw new PizzaException();
 		} else {
 
 			this.pizzas.add(p);
@@ -45,21 +43,21 @@ public class PizzaDaoTableau implements PizzaDao {
 	}
 
 	@Override
-	public void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException {
+	public void updatePizza(int indice, Pizza pizza) throws PizzaException {
 
 		if (indice > this.pizzas.size() - 1) {
-			throw new UpdatePizzaException();
+			throw new PizzaException();
 		} else {
 			this.pizzas.set(indice, pizza);
 		}
 	}
 
 	@Override
-	public void deletePizza(String codePizza) throws DeletePizzaException {
+	public void deletePizza(String codePizza) throws PizzaException {
 
 		int indice = pizzas.indexOf(pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get());
 		if (this.pizzas.size() <= indice) {
-			throw new DeletePizzaException();
+			throw new PizzaException();
 		} else {
 
 			this.pizzas.remove(indice);

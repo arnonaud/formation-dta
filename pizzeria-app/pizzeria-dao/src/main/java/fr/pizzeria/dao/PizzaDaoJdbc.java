@@ -9,79 +9,70 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
-
-import fr.pizzeria.exception.DeletePizzaException;
-import fr.pizzeria.exception.SavePizzaException;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDaoJdbc implements PizzaDao{
+public class PizzaDaoJdbc implements PizzaDao {
 
-	private Connection connection;
-	private Statement statement;
-	private List<Pizza> pizzas;
-	
-	public PizzaDaoJdbc()  {
-		try {
-			
-			connection();
-			ResultSet resultats = statement.executeQuery("SELECT * FROM PIZZA");
-			
-			List<Pizza> pizzas = new ArrayList<Pizza>();
-			while(resultats.next()){
-				String code = resultats.getString("reference");
-				String nom = resultats.getString("libelle");
-				double prix = resultats.getDouble("prix");
-				CategoriePizza cat = CategoriePizza.valueOf(resultats.getString("categorie").replaceAll(" ", "_").toUpperCase());
-				pizzas.add(new Pizza(code,nom,prix,cat));
-			}
-			this.pizzas = pizzas;
-			resultats.close();
-			closeConnection();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	public void connection() throws SQLException{
+	public Connection connection() throws PizzaException {
 		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
 		String jdbcAdress = bundle.getString("jdbc.adress");
 		String jdbcUser = bundle.getString("jdbc.user");
 		String jdbcPwd = bundle.getString("jdbc.pwd");
-		
-		connection = DriverManager.getConnection(jdbcAdress,jdbcUser,jdbcPwd);
-		statement = connection.createStatement();
-	}
-	
-	public void closeConnection() throws SQLException{
-		connection.close();
-		statement.close();
-	}
-	
-	@Override
-	public List<Pizza> findAll() {
-		
-		return this.pizzas;
+		Connection connection;
+		try {
+			connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);
+
+		} catch (SQLException e) {
+			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+			throw new PizzaException(e);
+		}
+		return connection;
+
 	}
 
 	@Override
-	public void save(Pizza p) throws SavePizzaException {
-		
+	public List<Pizza> findAll() {
+		List<Pizza> pizzas = new ArrayList<Pizza>();
+		try (Connection connection = connection(); Statement statement = connection.createStatement()) {
+
+			ResultSet resultats = statement.executeQuery("SELECT * FROM PIZZA");
+
+			while (resultats.next()) {
+				String code = resultats.getString("reference");
+				String nom = resultats.getString("libelle");
+				double prix = resultats.getDouble("prix");
+				CategoriePizza cat = CategoriePizza
+						.valueOf(resultats.getString("categorie").replaceAll(" ", "_").toUpperCase());
+				pizzas.add(new Pizza(code, nom, prix, cat));
+			}
+
+			resultats.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pizzas;
+	}
+
+	@Override
+	public void save(Pizza p) throws PizzaException {
+
 		if (p.getCode().length() != 3) {
-			throw new SavePizzaException();
+			throw new PizzaException();
 		} else {
-			
-			try {
-				connection();
+
+			try (Connection connection = connection();) {
+
 				String nom = p.getNom();
 				String code = p.getCode();
 				double prix = p.getPrix();
 				CategoriePizza cat = p.getCategorie();
-				
-				
-				PreparedStatement insertPizza = connection.prepareStatement("INSERT INTO Pizza(libelle,reference,prix,URLImage,categorie) VALUES (?,?,?,?,?)");
+
+				PreparedStatement insertPizza = connection.prepareStatement(
+						"INSERT INTO Pizza(libelle,reference,prix,URLImage,categorie) VALUES (?,?,?,?,?)");
 				insertPizza.setString(1, nom);
 				insertPizza.setString(2, code);
 				insertPizza.setDouble(3, prix);
@@ -89,35 +80,30 @@ public class PizzaDaoJdbc implements PizzaDao{
 				insertPizza.setString(5, cat.toString());
 				insertPizza.executeUpdate();
 				insertPizza.close();
-				closeConnection();
-			
+
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
 			}
 
-			this.pizzas.add(p);
 		}
 	}
 
 	@Override
-	public void updatePizza(int indice, Pizza pizza) throws UpdatePizzaException {
-		if (indice > this.pizzas.size() - 1) {
-			throw new UpdatePizzaException();
+	public void updatePizza(int indice, Pizza pizza) throws PizzaException {
+		if (indice > findAll().size() - 1) {
+			throw new PizzaException();
 		} else {
-			
-			String previousCode = this.pizzas.get(indice).getCode();
-			this.pizzas.set(indice, pizza);
-			
 
-			try {
-				connection();
+			try (Connection connection = connection();) {
+				String previousCode = findAll().get(indice).getCode();
 				String nom = pizza.getNom();
 				String code = pizza.getCode();
 				double prix = pizza.getPrix();
 				CategoriePizza cat = pizza.getCategorie();
-				
-				
-				PreparedStatement updatePizza = connection.prepareStatement("UPDATE Pizza SET libelle=?,reference=?,prix=?,categorie=? WHERE reference=?");
+
+				PreparedStatement updatePizza = connection.prepareStatement(
+						"UPDATE Pizza SET libelle=?,reference=?,prix=?,categorie=? WHERE reference=?");
 				updatePizza.setString(1, nom);
 				updatePizza.setString(2, code);
 				updatePizza.setDouble(3, prix);
@@ -125,43 +111,38 @@ public class PizzaDaoJdbc implements PizzaDao{
 				updatePizza.setString(5, previousCode);
 				updatePizza.executeUpdate();
 				updatePizza.close();
-				closeConnection();
-				
+
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
 			}
-			
-			
-			
+
 		}
-		
+
 	}
 
 	@Override
-	public void deletePizza(String codePizza) throws DeletePizzaException {
+	public void deletePizza(String codePizza) throws PizzaException {
+		List<Pizza> pizzas = findAll();
 		int indice = pizzas.indexOf(pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get());
-		if (this.pizzas.size() <= indice) {
-			throw new DeletePizzaException();
+		if (pizzas.size() <= indice) {
+			throw new PizzaException();
 		} else {
 
-			this.pizzas.remove(indice);
-			try {
-				connection();
-				
+			findAll().remove(indice);
+			try (Connection connection = connection();) {
+
 				PreparedStatement deletePizza = connection.prepareStatement("DELETE FROM Pizza WHERE reference=?");
-				deletePizza.setString(1,codePizza);
+				deletePizza.setString(1, codePizza);
 				deletePizza.executeUpdate();
 				deletePizza.close();
-				closeConnection();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
 			}
-			
-			
-			
 
 		}
-		
+
 	}
 
 }

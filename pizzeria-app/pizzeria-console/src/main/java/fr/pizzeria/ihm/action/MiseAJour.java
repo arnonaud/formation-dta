@@ -3,8 +3,7 @@ package fr.pizzeria.ihm.action;
 import java.util.List;
 import java.util.Scanner;
 
-import fr.pizzeria.exception.StockageException;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -18,7 +17,7 @@ public class MiseAJour extends Action {
 	}
 
 	@Override
-	public void executerAction() throws StockageException {
+	public void executerAction() throws PizzaException {
 		System.out.println("mise à jour d'une pizza");
 		// Listing de toute les pizzas
 		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
@@ -53,7 +52,7 @@ public class MiseAJour extends Action {
 			} else if (categorie.equals("Sans Viande")) {
 				cat = CategoriePizza.SANS_VIANDE;
 			} else
-				throw new UpdatePizzaException();
+				throw new PizzaException();
 
 			// instanciation d'une nouvelle pizza
 			Pizza pizza = new Pizza(code, nom, prix, cat);
