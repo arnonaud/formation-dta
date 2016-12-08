@@ -33,7 +33,8 @@ public class PizzaDaoFichier implements PizzaDao {
 				pizzas.add(new Pizza(f.substring(0, f.length() - 4), valeurs[0], Double.parseDouble(valeurs[1]), cat));
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+				throw new PizzaException(e);
 			}
 
 		});
