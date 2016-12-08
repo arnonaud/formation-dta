@@ -38,6 +38,7 @@ public class PizzaDaoJdbc implements PizzaDao{
 				pizzas.add(new Pizza(code,nom,prix,cat));
 			}
 			this.pizzas = pizzas;
+			resultats.close();
 			closeConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -87,6 +88,7 @@ public class PizzaDaoJdbc implements PizzaDao{
 				insertPizza.setString(4, "");
 				insertPizza.setString(5, cat.toString());
 				insertPizza.executeUpdate();
+				insertPizza.close();
 				closeConnection();
 			
 			} catch (SQLException e) {
@@ -122,7 +124,7 @@ public class PizzaDaoJdbc implements PizzaDao{
 				updatePizza.setString(4, cat.toString());
 				updatePizza.setString(5, previousCode);
 				updatePizza.executeUpdate();
-				
+				updatePizza.close();
 				closeConnection();
 				
 			} catch (SQLException e) {
@@ -149,7 +151,7 @@ public class PizzaDaoJdbc implements PizzaDao{
 				PreparedStatement deletePizza = connection.prepareStatement("DELETE FROM Pizza WHERE reference=?");
 				deletePizza.setString(1,codePizza);
 				deletePizza.executeUpdate();
-				
+				deletePizza.close();
 				closeConnection();
 			} catch (SQLException e) {
 				e.printStackTrace();
