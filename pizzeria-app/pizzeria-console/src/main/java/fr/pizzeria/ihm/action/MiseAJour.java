@@ -26,15 +26,15 @@ public class MiseAJour extends Action {
 		System.out.println("Veuillez choisir la pizza � modifier");
 		System.out.println("99 pour abandonner");
 
-		// Recherche de la pizza � modifier
+		// Recherche de la pizza à modifier
 		Scanner sc = this.ihmUtil.getScanner();
 		String codePizza = sc.nextLine();
 		if (!codePizza.equals("99")) {
 
-			// récuperation de l'indice de la pizza � modifier
+			// récuperation de l'indice de la pizza à modifier
 			List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
-			int indice = pizzas.indexOf(pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get());
-	
+			int indice = pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get().getId();
+			
 			// Demande des saisies avec stockage des modifications
 			System.out.println("Veuillez saisir le code");
 			String code = sc.nextLine();

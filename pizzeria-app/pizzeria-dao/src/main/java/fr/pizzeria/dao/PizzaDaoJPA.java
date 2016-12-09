@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -15,7 +16,7 @@ import fr.pizzeria.model.Pizza;
 public class PizzaDaoJPA implements PizzaDao{
 
 	private EntityManagerFactory emf;
-	private EntityManager em;
+	
 	 public PizzaDaoJPA() {
 		this.emf = Persistence.createEntityManagerFactory("pizzeria-console");
 	 }
@@ -23,7 +24,7 @@ public class PizzaDaoJPA implements PizzaDao{
 	@Override
 	public List<Pizza> findAll() {
 		
-		em = emf.createEntityManager();
+		EntityManager em = emf.createEntityManager();
 		TypedQuery<Pizza> query = em.createQuery("SELECT p FROM Pizza p",Pizza.class);
 		List<Pizza> pizzas = query.getResultList();
 		em.close();
@@ -32,19 +33,49 @@ public class PizzaDaoJPA implements PizzaDao{
 
 	@Override
 	public void save(Pizza p) throws PizzaException {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		em.persist(p);
+		et.commit();
+		em.close();
 		
 	}
 
 	@Override
 	public void updatePizza(int indice, Pizza pizza) throws PizzaException {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		
+		Pizza p = em.find(Pizza.class, indice);
+		if(p != null){
+			p.setCode(pizza.getCode());
+			p.setNom(pizza.getNom());
+			p.setPrix(pizza.getPrix());
+			p.setCategorie(pizza.getCategorie());
+			
+		}
+		
+		et.commit();
+		em.close();
 		
 	}
 
 	@Override
 	public void deletePizza(String codePizza) throws PizzaException {
-		// TODO Auto-generated method stub
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		
+		int indice = findAll().stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get().getId();		
+		Pizza p = em.find(Pizza.class, indice);
+		if(p != null){
+			em.remove(p);
+		}
+		
+		et.commit();
+		em.close();
 		
 	}
 	
