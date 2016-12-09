@@ -143,42 +143,39 @@ public class PizzaDaoJdbc implements PizzaDao {
 		PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
 		List<Pizza> pizzas = pizzaDaoFichier.findAll();
 		try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);) {
-					List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
+			List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
 
-		listPizzas.stream().forEach(l -> {
-			try {
-				connection.setAutoCommit(false);
-
-				
-				for (int i = 0; i < l.size(); i++) {
-					PreparedStatement insertPizza = connection.prepareStatement(
-							"INSERT INTO Pizza(libelle,reference,prix,URLImage,categorie) VALUES (?,?,?,?,?)");
-					insertPizza.setString(1, l.get(i).getNom());
-					insertPizza.setString(2, l.get(i).getCode());
-					insertPizza.setDouble(3, l.get(i).getPrix());
-					insertPizza.setString(4, "");
-					insertPizza.setString(5, l.get(i).getCategorie().toString());
-					insertPizza.executeUpdate();
-				}
-
-				connection.commit();
-			} catch (SQLException e) {
+			listPizzas.stream().forEach(l -> {
 				try {
-					connection.rollback();
-				} catch (SQLException e1) {
+					connection.setAutoCommit(false);
+
+					for (int i = 0; i < l.size(); i++) {
+						PreparedStatement insertPizza = connection.prepareStatement(
+								"INSERT INTO Pizza(libelle,reference,prix,URLImage,categorie) VALUES (?,?,?,?,?)");
+						insertPizza.setString(1, l.get(i).getNom());
+						insertPizza.setString(2, l.get(i).getCode());
+						insertPizza.setDouble(3, l.get(i).getPrix());
+						insertPizza.setString(4, "");
+						insertPizza.setString(5, l.get(i).getCategorie().toString());
+						insertPizza.executeUpdate();
+					}
+
+					connection.commit();
+				} catch (SQLException e) {
+					try {
+						connection.rollback();
+					} catch (SQLException e1) {
+						Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+						throw new PizzaException(e);
+					}
 					Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
 					throw new PizzaException(e);
 				}
-				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
-				throw new PizzaException(e);
-			}
-		});
+			});
 		} catch (SQLException e) {
 			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
 			throw new PizzaException(e);
 		}
-
-
 
 	}
 

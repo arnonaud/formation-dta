@@ -69,7 +69,7 @@
     </dependency>
   </dependencies>
   <properties>
-    <daoType>fr.pizzeria.abstractfactory.JdbcFactory</daoType>
+    <daoType>fr.pizzeria.abstractfactory.JPAFactory</daoType>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>

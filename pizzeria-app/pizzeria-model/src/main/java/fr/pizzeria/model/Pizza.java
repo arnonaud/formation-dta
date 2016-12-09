@@ -1,5 +1,12 @@
 package fr.pizzeria.model;
 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -11,15 +18,25 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * @author Arnaud
  *
  */
+
+@Entity
 public class Pizza {
 
+	@Id
 	private Integer id;
+	@Column(name="reference")
 	private String code;
+	@Column(name="libelle")
 	private String nom;
 	private double prix;
 	private static int nbPizzas;
+	@Enumerated(EnumType.STRING)
 	private CategoriePizza categorie;
 
+	public Pizza(){
+		
+	}
+	
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
 		this.id = nbPizzas;
 		this.code = code;
