@@ -14,7 +14,7 @@ public class PizzaDaoTableau implements PizzaDao {
 	
 	public PizzaDaoTableau() {
 		List<Pizza> pizzas = new ArrayList<Pizza>();
-		pizzas.add(new Pizza("PEP", "TABLEAU Pépéroni", 12.50, CategoriePizza.VIANDE));
+		/*pizzas.add(new Pizza("PEP", "TABLEAU Pépéroni", 12.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza("MAR", "TABLEAU Margherita", 14.00, CategoriePizza.POISSON));
 		pizzas.add(new Pizza("REI", "TABLEAU La Reine", 11.50, CategoriePizza.SANS_VIANDE));
 		pizzas.add(new Pizza("FRO", "TABLEAU La 4 fromages", 11.50, CategoriePizza.VIANDE));
@@ -22,7 +22,15 @@ public class PizzaDaoTableau implements PizzaDao {
 		pizzas.add(new Pizza("SAV", "TABLEAU La savoyarde", 11.50, CategoriePizza.SANS_VIANDE));
 		pizzas.add(new Pizza("ORI", "TABLEAU L'orientale", 11.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza("IND", "TABLEAU L'indienne", 11.50, CategoriePizza.POISSON));
-
+*/
+		
+		pizzas.add(new Pizza("AAA", "TABLEAU Margherita", 14.00, CategoriePizza.POISSON));
+		pizzas.add(new Pizza("BBB", "TABLEAU La Reine", 11.50, CategoriePizza.SANS_VIANDE));
+		pizzas.add(new Pizza("NNNN", "TABLEAU La 4 fromages", 11.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza("FFF", "TABLEAU La cannibale", 11.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza("DDD", "TABLEAU La savoyarde", 11.50, CategoriePizza.SANS_VIANDE));
+		pizzas.add(new Pizza("SSS", "TABLEAU L'orientale", 11.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza("QQQ", "TABLEAU L'indienne", 11.50, CategoriePizza.POISSON));
 		this.pizzas = pizzas;
 	}
 
@@ -66,13 +74,6 @@ public class PizzaDaoTableau implements PizzaDao {
 		}
 
 	}
-
-	@Override
-	public void importJdbc() throws PizzaException {
-		Logger.getLogger(PizzaDaoJdbc.class.getName()).severe("Non implementé sous format tableau");
-		
-	}
-
 	
 
 }

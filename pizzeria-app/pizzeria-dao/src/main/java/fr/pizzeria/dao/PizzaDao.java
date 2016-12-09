@@ -15,5 +15,7 @@ public interface PizzaDao {
 
 	void deletePizza(String codePizza) throws PizzaException;
 	
-	void importJdbc() throws PizzaException;
+	default void importJdbc() throws PizzaException{
+		throw new PizzaException("Not Yet Implement");
+	};
 }

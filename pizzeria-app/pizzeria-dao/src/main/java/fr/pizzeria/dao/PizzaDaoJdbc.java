@@ -140,7 +140,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 	@Override
 	public void importJdbc() throws PizzaException {
 
-		/*PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
+		PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
 		List<Pizza> pizzas = pizzaDaoFichier.findAll();
 		Connection connection;
 		try {
@@ -151,13 +151,23 @@ public class PizzaDaoJdbc implements PizzaDao {
 		}
 
 		List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
+
 		listPizzas.stream().forEach(l -> {
 			try {
 				connection.setAutoCommit(false);
 
-				save(l.get(0));
-				save(l.get(1));
-				save(l.get(2));
+				
+				for (int i = 0; i < l.size(); i++) {
+					PreparedStatement insertPizza = connection.prepareStatement(
+							"INSERT INTO Pizza(libelle,reference,prix,URLImage,categorie) VALUES (?,?,?,?,?)");
+					insertPizza.setString(1, l.get(i).getNom());
+					insertPizza.setString(2, l.get(i).getCode());
+					insertPizza.setDouble(3, l.get(i).getPrix());
+					insertPizza.setString(4, "");
+					insertPizza.setString(5, l.get(i).getCategorie().toString());
+					insertPizza.executeUpdate();
+				}
+
 				connection.commit();
 
 			} catch (SQLException e) {
@@ -171,8 +181,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 				throw new PizzaException(e);
 			}
 		});
-*/
-		Logger.getLogger(PizzaDaoJdbc.class.getName()).severe("Not Yet Implement");
+
 	}
 
 }

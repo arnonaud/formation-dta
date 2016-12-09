@@ -110,10 +110,4 @@ public class PizzaDaoFichier implements PizzaDao {
 
 	}
 
-	@Override
-	public void importJdbc() throws PizzaException {
-		Logger.getLogger(PizzaDaoJdbc.class.getName()).severe("Non implementé sous format fichier");
-		
-	}
-
 }

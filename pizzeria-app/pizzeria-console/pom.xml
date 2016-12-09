@@ -1,38 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-<parent>
-	<groupId>pizzeria</groupId>
-	<artifactId>arnaud-pizzeria-app</artifactId>
-	<version>1</version>
-	<relativePath>../pom.xml</relativePath>
-</parent>
- 
-  <artifactId>arnaud-pizzeria-console</artifactId>
+	<parent>
+		<groupId>pizzeria</groupId>
+		<artifactId>arnaud-pizzeria-app</artifactId>
+		<version>1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 
-  <name>pizzeria-console</name>
-  <url>http://maven.apache.org</url>
+	<artifactId>arnaud-pizzeria-console</artifactId>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <daoType>fr.pizzeria.abstractfactory.JdbcFactory</daoType>
-  </properties>
-  <dependencies>
-	<dependency>
-		<groupId>${project.groupId}</groupId>
-		<artifactId>arnaud-pizzeria-model</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>${project.groupId}</groupId>
-		<artifactId>arnaud-pizzeria-dao</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-	</dependency>
-</dependencies>
-  <build>
+	<name>pizzeria-console</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<daoType>fr.pizzeria.abstractfactory.JdbcFactory</daoType>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>arnaud-pizzeria-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>arnaud-pizzeria-dao</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -42,20 +46,20 @@
 						<target>1.8</target>
 					</configuration>
 				</plugin>
-			<plugin>
-	               <groupId>org.apache.maven.plugins</groupId>
-	               <artifactId>maven-jar-plugin</artifactId>
-	               <version>3.0.2</version>
-	               <configuration>
-	                     <archive>
-	                       <manifest>
-	                           <mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
-	                       </manifest>
-	                     </archive>
-	               </configuration>
-             	</plugin>
-            </plugins>
-             	
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.0.2</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+
 		</pluginManagement>
 		<finalName>
 			Pizzeria-java
@@ -73,7 +77,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
