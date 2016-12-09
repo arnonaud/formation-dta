@@ -142,15 +142,8 @@ public class PizzaDaoJdbc implements PizzaDao {
 
 		PizzaDaoFichier pizzaDaoFichier = new PizzaDaoFichier();
 		List<Pizza> pizzas = pizzaDaoFichier.findAll();
-		Connection connection;
-		try {
-			connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);
-		} catch (SQLException e) {
-			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
-			throw new PizzaException(e);
-		}
-
-		List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
+		try (Connection connection = DriverManager.getConnection(jdbcAdress, jdbcUser, jdbcPwd);) {
+					List<List<Pizza>> listPizzas = ListUtils.partition(pizzas, 3);
 
 		listPizzas.stream().forEach(l -> {
 			try {
@@ -169,7 +162,6 @@ public class PizzaDaoJdbc implements PizzaDao {
 				}
 
 				connection.commit();
-
 			} catch (SQLException e) {
 				try {
 					connection.rollback();
@@ -181,6 +173,12 @@ public class PizzaDaoJdbc implements PizzaDao {
 				throw new PizzaException(e);
 			}
 		});
+		} catch (SQLException e) {
+			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
+			throw new PizzaException(e);
+		}
+
+
 
 	}
 
