@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
+import fr.pizzeria.model.Client;
+import fr.pizzeria.model.Commande;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoFichier implements PizzaDao {
@@ -49,7 +51,7 @@ public class PizzaDaoFichier implements PizzaDao {
 	}
 
 	@Override
-	public void save(Pizza p) throws PizzaException {
+	public void savePizza(Pizza p) throws PizzaException {
 		if (p.getCode().length() != 3) {
 			throw new PizzaException();
 		} else {
@@ -109,5 +111,7 @@ public class PizzaDaoFichier implements PizzaDao {
 		}
 
 	}
+
+
 
 }

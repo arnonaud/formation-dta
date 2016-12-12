@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
+import fr.pizzeria.model.Client;
+import fr.pizzeria.model.Commande;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoTableau implements PizzaDao {
@@ -38,7 +40,7 @@ public class PizzaDaoTableau implements PizzaDao {
 	}
 
 	@Override
-	public void save(Pizza p) throws PizzaException {
+	public void savePizza(Pizza p) throws PizzaException {
 
 		if (p.getCode().length() != 3) {
 			throw new PizzaException();
@@ -72,6 +74,8 @@ public class PizzaDaoTableau implements PizzaDao {
 		}
 
 	}
+
+
 	
 
 }

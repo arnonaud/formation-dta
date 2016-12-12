@@ -1,11 +1,13 @@
 package fr.pizzeria.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -20,16 +22,17 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  */
 
 @Entity
+@Table(name="pizza")
 public class Pizza {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="reference")
 	private String code;
-	@Column(name="libelle")
 	private String nom;
 	private double prix;
-	private static int nbPizzas;
+	@Column(name="url_image")
+	private String urlImage;
 	@Enumerated(EnumType.STRING)
 	private CategoriePizza categorie;
 
@@ -38,11 +41,9 @@ public class Pizza {
 	}
 	
 	public Pizza(String code, String nom, double prix, CategoriePizza categorie) {
-		this.id = nbPizzas;
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
-		Pizza.nbPizzas = 8;
 		this.categorie = categorie;
 
 	}
@@ -87,17 +88,7 @@ public class Pizza {
 		this.prix = prix;
 	}
 
-	public static int getNbPizzas() {
-		return nbPizzas;
-	}
-
-	public static void addNbPizzas() {
-		Pizza.nbPizzas++;
-	}
-
-	public static void supNbPizzas() {
-		Pizza.nbPizzas--;
-	}
+	
 
 	public void afficherPizza() {
 		System.out.println(this.id +" : " +this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : " + this.categorie);
@@ -127,5 +118,13 @@ public class Pizza {
 			       append(prix).
 			       append(categorie).
 			       toHashCode();
+	}
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String url_image) {
+		this.urlImage = url_image;
 	}
 }

@@ -31,10 +31,10 @@ public class Ajouter extends Action {
 		String categorie = this.ihmUtil.getScanner().nextLine();
 		CategoriePizza cat;
 		cat = CategoriePizza.valueOf(categorie.replaceAll(" ", "_").toUpperCase());
-		// cr�e l'objet pizza � partir de la saisie
+		// crée l'objet pizza à partir de la saisie
 		Pizza p = new Pizza(code, nom, Double.parseDouble(prix), cat);
 		try {
-			this.ihmUtil.getPizzaDao().save(p);
+			this.ihmUtil.getPizzaDao().savePizza(p);
 		} catch (PizzaException e) {
 			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
 			throw new PizzaException(e);
