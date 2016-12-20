@@ -80,6 +80,46 @@ public class Commande {
 		this.statut = statut;
 	}
 
+	public String getNumeroCommande() {
+		return numeroCommande;
+	}
+
+	public void setNumeroCommande(String numeroCommande) {
+		this.numeroCommande = numeroCommande;
+	}
+
+	public Date getDateCommande() {
+		return dateCommande;
+	}
+
+	public void setDateCommande(Date dateCommande) {
+		this.dateCommande = dateCommande;
+	}
+
+	public Livreur getLivreur() {
+		return livreur;
+	}
+
+	public void setLivreur(Livreur livreur) {
+		this.livreur = livreur;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Set<Pizza> getPizzas() {
+		return pizzas;
+	}
+
+	public void setPizzas(Set<Pizza> pizzas) {
+		this.pizzas = pizzas;
+	}
+
 	public Date getdateCommande() {
 		return dateCommande;
 	}
@@ -111,8 +151,8 @@ public class Commande {
 		System.out.println("Livreur : " + this.livreur.getNom() + " " + this.livreur.getPrenom());
 		System.out.println("Pizza(s) : ");
 		
-		//TODO listing des pizzas
-		//System.out.println(this.pizzas);
+		
+		
 		
 	
 	}

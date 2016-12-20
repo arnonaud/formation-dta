@@ -90,8 +90,8 @@ public class Pizza {
 
 	
 
-	public void afficherPizza() {
-		System.out.println(this.id +" : " +this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : " + this.categorie);
+	public String afficherPizza() {
+		return this.id +" : " +this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : " + this.categorie;
 	}
 	
 	@Override

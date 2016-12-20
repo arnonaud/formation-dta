@@ -1,0 +1,11 @@
+<web-app>
+<display-name>Pizzeria</display-name>
+  <servlet>
+  	<servlet-name>ListerPizzaController</servlet-name>
+  	<servlet-class>fr.pizzeria.admin.web.ListerPizzaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ListerPizzaController</servlet-name>
+  	<url-pattern>/pizzas/list</url-pattern>
+  </servlet-mapping>  
+</web-app>
