@@ -15,7 +15,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Liste Pizzas</title>
+<title>Technique</title>
 
 <!-- Bootstrap core CSS -->
 <link
@@ -51,35 +51,7 @@
 	</nav>
 
 	<div class="container">
-		<div class="table-responsive">
-			<table class="table table-condensed" style="margin-top: 100px;">
-				<thead>
-					<tr>
-						<th>Code</th>
-						<th>Nom</th>
-						<th>Prix</th>
-						<th>Categorie</th>
-						<th>Image</th>
-					</tr>
-				</thead>
-				<c:forEach var="pizza" items="${pizzas}">
-					<tr>
-						<td>${pizza.code}</td>
-						<td>${pizza.nom}</td>
-						<td>${pizza.prix}</td>
-						<td>${pizza.categorie}</td>
-						<td><img width="50px"
-							src="<c:url value='/img/${pizza.urlImage}' />" /></td>
-						<td><a
-							href="<c:url value='/pizzas/edit?code=${pizza.code}' />"
-							class="btn btn-success">Editer</a></td>
-						<td><a
-							href="<c:url value='/pizzas/suppression?code=${pizza.code}' />"
-							class="btn btn-danger">Supprimer</a></td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
+	
 	</div>
 	<!-- /.container -->
 </body>

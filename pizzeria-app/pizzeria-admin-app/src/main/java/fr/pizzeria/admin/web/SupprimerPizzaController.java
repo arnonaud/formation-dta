@@ -13,26 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.pizzeria.abstractfactory.AbstractFactory;
 import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.model.Pizza;
 
-@WebServlet(name = "ListerPizzaController", urlPatterns = { "/pizzas/list" })
-public class ListerPizzaController extends HttpServlet{
-
+@WebServlet( name="SupprimerPizzaController", urlPatterns = {"/pizzas/suppression"} )
+public class SupprimerPizzaController extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		
+	
 		ResourceBundle bundle = ResourceBundle.getBundle("application");
 		String daoConfig = bundle.getString("dao.impl");
 		AbstractFactory daoFactory;
 		try {
 			daoFactory = (AbstractFactory) Class.forName(daoConfig).newInstance();
 			PizzaDao pizzaDao = daoFactory.getService().getPizzas();
-			List<Pizza> pizzas = pizzaDao.findAll();
-			
-			req.setAttribute("pizzas", pizzas);
-			
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/pizzas/listerPizzas.jsp");
+
+			String code = req.getParameter("code");
+			pizzaDao.deletePizza(code);
+
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/pizzas/list");
 			dispatcher.forward(req, resp);
 		
 		} catch (Exception e) {
@@ -41,4 +39,5 @@ public class ListerPizzaController extends HttpServlet{
 		}
 		
 	}
+
 }

@@ -16,7 +16,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Liste Pizzas</title>
+<title>Ajout Pizza</title>
 
 <!-- Bootstrap core CSS -->
 <link
@@ -52,19 +52,18 @@
 		</div>
 	</nav>
 	<div class="container">
-		<c:set var="prevCode" scope="page" value="${pizza.code}" />
 		<form method="post" class="form-horizontal" style="margin-top: 100px;">
 			<fieldset>
 
 				<!-- Form Name -->
-				<legend>Editer Pizza</legend>
+				<legend>Ajouter Pizza</legend>
 
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="code">Code Pizza</label>
 					<div class="col-md-4">
 						<input id="code" name="code" type="text" placeholder="code"
-							class="form-control input-md" value="${pizza.code}">
+							class="form-control input-md" >
 
 					</div>
 				</div>
@@ -74,7 +73,7 @@
 					<label class="col-md-4 control-label" for="nom">Nom</label>
 					<div class="col-md-4">
 						<input id="nom" name="nom" type="text" placeholder="nom"
-							class="form-control input-md" value="${pizza.nom}">
+							class="form-control input-md" >
 					</div>
 				</div>
 
@@ -84,7 +83,7 @@
 					<div class="col-md-4">
 						<div class="input-group">
 							<input id="prix" name="prix" class="form-control"
-								placeholder="prix" type="text" value="${pizza.prix}"> <span
+								placeholder="prix" type="text" > <span
 								class="input-group-addon">euros</span>
 						</div>
 

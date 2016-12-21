@@ -48,6 +48,15 @@ public class Pizza {
 
 	}
 
+	public Pizza(String code, String nom, double prix, CategoriePizza categorie, String url) {
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		this.categorie = categorie;
+		this.urlImage = url;
+
+	}
+	
 	public CategoriePizza getCategorie() {
 		return categorie;
 	}

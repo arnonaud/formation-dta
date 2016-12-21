@@ -1,6 +1,5 @@
 package fr.pizzeria.dao;
 
-
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -20,59 +19,58 @@ import fr.pizzeria.model.Commande;
 import fr.pizzeria.model.Livreur;
 import fr.pizzeria.model.Pizza;
 
-public class PizzaDaoJPA implements PizzaDao{
+public class PizzaDaoJPA implements PizzaDao {
 
 	private EntityManagerFactory emf;
-	
-	 public PizzaDaoJPA() {
+
+	public PizzaDaoJPA() {
 		this.emf = Persistence.createEntityManagerFactory("pizzeria-console");
-	
-	 }
-	 public void saveCommande(Commande p) throws PizzaException {
-			
-		 execute((EntityManager em) -> {
+
+	}
+
+	public void saveCommande(Commande p) throws PizzaException {
+
+		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
 			em.merge(p);
 			et.commit();
 			return Void.TYPE;
 		});
-		
+
 	}
-	 
-	 public void saveClient(Client p) throws PizzaException {
-			
-		 execute((EntityManager em) -> {
+
+	public void saveClient(Client p) throws PizzaException {
+
+		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
 			em.merge(p);
 			et.commit();
 			return Void.TYPE;
 		});
-		
+
 	}
-	 public void saveLivreur(Livreur p) throws PizzaException {
-			
-		 execute((EntityManager em) -> {
+
+	public void saveLivreur(Livreur p) throws PizzaException {
+
+		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
 			em.merge(p);
 			et.commit();
 			return Void.TYPE;
 		});
-		
+
 	}
-	 
-	 
-	 
-	 
-	 interface IRunJPA<T> {
-		 T exe(EntityManager em) throws SQLException;
-	 }
-	
-	 public <T> T execute(IRunJPA<T> run) {
-		 EntityManager em = null;
-		 try {
+
+	interface IRunJPA<T> {
+		T exe(EntityManager em) throws SQLException;
+	}
+
+	public <T> T execute(IRunJPA<T> run) {
+		EntityManager em = null;
+		try {
 			em = emf.createEntityManager();
 			return run.exe(em);
 		} catch (Exception e) {
@@ -83,52 +81,51 @@ public class PizzaDaoJPA implements PizzaDao{
 			}
 		}
 		return null;
-		 
-	 }
-	 
-	@Override
-	public List<Pizza> findAll() {
-		
-		return execute((EntityManager em) -> {
-			TypedQuery<Pizza> query = em.createQuery("SELECT p FROM Pizza p",Pizza.class);
-			List<Pizza> pizzas = query.getResultList();
-			return pizzas;
-		});
-		
+
 	}
 
 	@Override
-	public List<Livreur> findAllLivreur(){
+	public List<Pizza> findAll() {
+
 		return execute((EntityManager em) -> {
-			TypedQuery<Livreur> query = em.createQuery("SELECT p FROM Livreur p",Livreur.class);
-			List<Livreur> livreurs= query.getResultList();
+			TypedQuery<Pizza> query = em.createQuery("SELECT p FROM Pizza p", Pizza.class);
+			List<Pizza> pizzas = query.getResultList();
+			return pizzas;
+		});
+
+	}
+
+	@Override
+	public List<Livreur> findAllLivreur() {
+		return execute((EntityManager em) -> {
+			TypedQuery<Livreur> query = em.createQuery("SELECT p FROM Livreur p", Livreur.class);
+			List<Livreur> livreurs = query.getResultList();
 			return livreurs;
 		});
-		
+
 	}
-	
+
 	@Override
-	public List<Client> findAllClient(){
+	public List<Client> findAllClient() {
 		return execute((EntityManager em) -> {
-			TypedQuery<Client> query = em.createQuery("SELECT p FROM Client p",Client.class);
-			List<Client> clients= query.getResultList();
+			TypedQuery<Client> query = em.createQuery("SELECT p FROM Client p", Client.class);
+			List<Client> clients = query.getResultList();
 			return clients;
 		});
-		
+
 	}
-	
-	
+
 	@Override
 	public void savePizza(Pizza p) throws PizzaException {
-		
-		 execute((EntityManager em) -> {
+
+		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
 			em.merge(p);
 			et.commit();
 			return Void.TYPE;
 		});
-		
+
 	}
 
 	@Override
@@ -137,20 +134,21 @@ public class PizzaDaoJPA implements PizzaDao{
 		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
-			
+
 			Pizza p = em.find(Pizza.class, indice);
-			if(p != null){
+			if (p != null) {
 				p.setCode(pizza.getCode());
 				p.setNom(pizza.getNom());
 				p.setPrix(pizza.getPrix());
 				p.setCategorie(pizza.getCategorie());
-				
+				p.setUrlImage(pizza.getUrlImage());
+
 			}
-			
+
 			et.commit();
 			return Void.TYPE;
 		});
-		
+
 	}
 
 	@Override
@@ -159,41 +157,37 @@ public class PizzaDaoJPA implements PizzaDao{
 		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
-			
-			int indice = findAll().stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get().getId();		
+
+			int indice = findAll().stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get().getId();
 			Pizza p = em.find(Pizza.class, indice);
-			if(p != null){
+			if (p != null) {
 				em.remove(p);
 			}
-			
+
 			et.commit();
 			return Void.TYPE;
 		});
-		
+
 	}
-	
+
 	@Override
-	public boolean connection(String identifiant, String mdp){
+	public boolean connection(String identifiant, String mdp) {
 		return execute((EntityManager em) -> {
-			TypedQuery<Client> query = em.createQuery("SELECT c FROM Client c Where nom=:identifiant",Client.class)
-										.setParameter("identifiant", identifiant);
-		
-					
-		
-			if(DigestUtils.shaHex(mdp).toString().equals(query.getSingleResult().getMdp())){
+			TypedQuery<Client> query = em.createQuery("SELECT c FROM Client c Where nom=:identifiant", Client.class)
+					.setParameter("identifiant", identifiant);
+
+			if (DigestUtils.shaHex(mdp).toString().equals(query.getSingleResult().getMdp())) {
 				return true;
-			}
-			else{
+			} else {
 				return false;
 			}
-			
+
 		});
-		
-		
+
 	}
-	
+
 	@Override
-	public void addCommande(Commande c){
+	public void addCommande(Commande c) {
 		execute((EntityManager em) -> {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
@@ -204,18 +198,16 @@ public class PizzaDaoJPA implements PizzaDao{
 	}
 
 	@Override
-	public List<Commande> listerCommande(String identifiant){
+	public List<Commande> listerCommande(String identifiant) {
 		return execute((EntityManager em) -> {
-			TypedQuery<Commande> query = em.createQuery("SELECT c FROM Commande c",Commande.class);
+			TypedQuery<Commande> query = em.createQuery("SELECT c FROM Commande c", Commande.class);
 			List<Commande> commandes = query.getResultList();
-			
-			
+
 			commandes.stream().forEach(c -> {
 				c.afficher();
 			});
 			return commandes;
 		});
 	}
-	
-	
+
 }

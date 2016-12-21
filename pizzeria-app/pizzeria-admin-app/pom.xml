@@ -1,41 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
 		<groupId>pizzeria</groupId>
 		<artifactId>arnaud-pizzeria-app</artifactId>
 		<version>1</version>
 		<relativePath>../pom.xml</relativePath>
-  </parent>
-	  
-  <artifactId>arnaud-pizzeria-admin-app</artifactId>
-  
-  <packaging>war</packaging>
-  
-  <name>pizzeria-admin-app</name>
-  <url>http://maven.apache.org</url>
-  
-  <properties>
+	</parent>
+
+	<artifactId>arnaud-pizzeria-admin-app</artifactId>
+
+	<packaging>war</packaging>
+
+	<name>pizzeria-admin-app</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<daoType>fr.pizzeria.abstractfactory.JPAFactory</daoType>
 	</properties>
-  
-  <dependencies>
-    <dependency>
-	    <groupId>javax</groupId>
-	    <artifactId>javaee-api</artifactId>
-	    <version>7.0</version>
-	    <scope>provided</scope>
-	</dependency>
-	<dependency>
-		<groupId>${project.groupId}</groupId>
-		<artifactId>arnaud-pizzeria-model</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>${project.groupId}</groupId>
-		<artifactId>arnaud-pizzeria-dao</artifactId>
-	</dependency>
-	<dependency>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>arnaud-pizzeria-model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>arnaud-pizzeria-dao</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
@@ -47,14 +47,22 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 		</dependency>
-  </dependencies>
-  <build>
-    <finalName>arnaud-pizzeria-admin-app</finalName>
-    <resources>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>arnaud-pizzeria-admin-app</finalName>
+		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-  </build>
+	</build>
 </project>
