@@ -14,7 +14,7 @@ import fr.pizzeria.ihm.action.MiseAJour;
 import fr.pizzeria.ihm.action.Supprimer;
 
 /**
- * Class menu repr�sentant le d�marrage de l'application,
+ * Class menu représentant le démarrage de l'application,
  * 
  * @author Arnaud
  *

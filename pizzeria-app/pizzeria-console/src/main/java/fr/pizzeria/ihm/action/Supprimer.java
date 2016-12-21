@@ -25,19 +25,19 @@ public class Supprimer extends Action {
 
 	@Override
 	public void executerAction() {
-		System.out.println("Mise � jour d'une pizza");
+		System.out.println("Mise à jour d'une pizza");
 		// Listing de toute les pizzas
 		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
 		listerPizza.executerAction();
 
-		System.out.println("Veuillez choisir la pizza � supprimer");
+		System.out.println("Veuillez choisir la pizza à supprimer");
 		System.out.println("99 pour abandonner");
 
 		String codePizza = this.ihmUtil.getScanner().nextLine();
 		if (!codePizza.equals("99")) {
 			try {
 				this.ihmUtil.getPizzaDao().deletePizza(codePizza);
-				System.out.println("Pizza suprim�e");
+				System.out.println("Pizza suprimée");
 			} catch (PizzaException e) {
 				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
 				throw new PizzaException(e);			}

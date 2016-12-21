@@ -23,7 +23,7 @@ public class MiseAJour extends Action {
 		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
 		listerPizza.executerAction();
 
-		System.out.println("Veuillez choisir la pizza � modifier");
+		System.out.println("Veuillez choisir la pizza à modifier");
 		System.out.println("99 pour abandonner");
 
 		// Recherche de la pizza à modifier
