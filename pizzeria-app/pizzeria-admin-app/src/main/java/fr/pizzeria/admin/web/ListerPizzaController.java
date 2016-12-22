@@ -2,6 +2,7 @@ package fr.pizzeria.admin.web;
 
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,13 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.pizzeria.admin.metier.PizzaService;
+import fr.pizzeria.admin.metier.PizzaServiceEJB;
 
 
 
 @WebServlet(name = "ListerPizzaController", urlPatterns = { "/pizzas/list" })
 public class ListerPizzaController extends HttpServlet{
 
-	@Inject private PizzaService servicePizza;
+	//@Inject private PizzaService servicePizza;
+	
+	@EJB private PizzaServiceEJB servicePizza;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,4 +32,5 @@ public class ListerPizzaController extends HttpServlet{
 		dispatcher.forward(req, resp);
 	
 	}
+	
 }
