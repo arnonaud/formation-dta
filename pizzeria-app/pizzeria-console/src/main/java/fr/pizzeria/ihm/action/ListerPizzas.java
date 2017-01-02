@@ -29,13 +29,13 @@ public class ListerPizzas extends Action {
 
 		Comparator<Pizza> comparatorCategorie = Comparator.comparing(Pizza::getCategorie);
 		List<Pizza> list = pizzas.stream().sorted(comparatorCategorie).collect(Collectors.toList());
-		list.stream().forEach(p -> p.afficherPizza());
+		list.stream().forEach(p -> System.out.println(p.afficherPizza()));
 
 		// affichage de la pizza la plus cher
 		System.out.println("Pizza la plus chere");
 		Comparator<Pizza> comparator = Comparator.comparing(Pizza::getPrix);
-		pizzas.stream().max(comparator).get().afficherPizza();
-
+		Pizza pizza = pizzas.stream().max(comparator).get();
+		System.out.println(pizza.afficherPizza());
 	}
 
 }

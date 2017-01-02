@@ -5,6 +5,7 @@
 	<persistence-unit name="pizza-db">
 		<jta-data-source>jdbc/pizza-ds</jta-data-source>
 		<class>fr.pizzeria.model.Pizza</class>
+		<class>fr.pizzeria.model.Client</class>
 		<properties>
 			<property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
 		</properties>		

@@ -15,13 +15,15 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Liste Pizzas</title>
+<title>Liste Clients</title>
 
 <!-- Bootstrap core CSS -->
 <link
 	href="<c:url value='/bootstrap-3.3.7-dist/css/bootstrap.min.css' />"
 	rel="stylesheet">
-
+<link href="<c:url value='/css/style.css' />" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+<script src="<c:url value='/js/myjs.js' />"></script>
 </head>
 
 <body>
@@ -53,33 +55,69 @@
 
 	<div class="container">
 		<div class="table-responsive">
-			<table class="table table-condensed" style="margin-top: 100px;">
+			<table id="tableCLi" class="table table-condensed" style="margin-top: 100px;">
 				<thead>
 					<tr>
-						<th>Code</th>
 						<th>Nom</th>
-						<th>Prix</th>
-						<th>Categorie</th>
-						<th>Image</th>
+						<th>Mail</th>
 					</tr>
 				</thead>
-				<c:forEach var="pizza" items="${pizzas}">
-					<tr>
-						<td>${pizza.code}</td>
-						<td>${pizza.nom}</td>
-						<td>${pizza.prix}</td>
-						<td>${pizza.categorie}</td>
-						<td><img width="50px"
-							src="<c:url value='/img/${pizza.urlImage}' />" /></td>
-						<td><a
-							href="<c:url value='/pizzas/edit?code=${pizza.code}' />"
-							class="btn btn-success">Editer</a></td>
-						<td><a
-							href="<c:url value='/pizzas/suppression?code=${pizza.code}' />"
-							class="btn btn-danger">Supprimer</a></td>
-					</tr>
-				</c:forEach>
+				<tbody>
+				</tbody>
 			</table>
+			<a id="addClient" onclick="display();" class="btn btn-primary">Ajout</a>
+		</div>
+		<br /><br />
+		<div id="cliForm">
+			<form method="post" class="form-horizontal">
+				<fieldset>
+
+					<!-- Form Name -->
+					<legend>Ajout Client</legend>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="nomCli">Nom</label>
+						<div class="col-md-4">
+							<input id="nomCli" name="nomCli" type="text" placeholder="nom"
+								class="form-control input-md" required="">
+
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="mailCli">Mail</label>
+						<div class="col-md-4">
+							<input id="mailCli" name="mailCli" type="text" placeholder="mail"
+								class="form-control input-md" required="">
+
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="mdpCli">Mot de
+							passe</label>
+						<div class="col-md-4">
+							<input id="mdpCli" name="mdpCli" type="text"
+								placeholder="mot de passe" class="form-control input-md">
+
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="submitCli"></label>
+						<div class="col-md-4">
+							<button onClick="addCli();" name="submitCli" class="btn btn-primary">Envoyer</button>
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+
+
 		</div>
 	</div>
 	<!-- /.container -->

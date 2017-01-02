@@ -17,7 +17,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<daoType>fr.pizzeria.abstractfactory.JPAFactory</daoType>
+		<daoType>fr.pizzeria.abstractfactory.ApiRestFactory</daoType>
 	</properties>
 
 	<dependencies>

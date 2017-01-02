@@ -37,16 +37,17 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<c:url value='/pizzas/list' />" >Pizzeria</a>
+				<a class="navbar-brand" href="<c:url value='/pizzas/list' />">Pizzeria</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="<c:url value='/pizzas/list' />" >Liste</a></li>
-					<li><a href="<c:url value='/pizzas/ajout' />" >Ajout</a></li>
-					<li><a href="<c:url value='/pizzas/technique' />" >Technique</a></li>
-					<li><a href="<c:url value='/logout' />" >Logout</a></li>
+					<li><a href="<c:url value='/pizzas/list' />">Liste</a></li>
+					<li><a href="<c:url value='/pizzas/ajout' />">Ajout</a></li>
+					<li><a href="<c:url value='/pizzas/technique' />">Technique</a></li>
+					<li><a href="<c:url value='/clients' />">Clients</a></li>
+					<li><a href="<c:url value='/logout' />">Logout</a></li>
 				</ul>
-				
+
 			</div>
 			<!--/.nav-collapse -->
 		</div>

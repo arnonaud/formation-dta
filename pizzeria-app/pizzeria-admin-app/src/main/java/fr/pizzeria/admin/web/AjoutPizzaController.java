@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import fr.pizzeria.admin.metier.PizzaService;
 import fr.pizzeria.admin.metier.PizzaServiceEJB;
 import fr.pizzeria.model.CategoriePizza;
+import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
 
 
@@ -32,15 +33,12 @@ public class AjoutPizzaController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			
-		String code = req.getParameter("code");
-		String nom = req.getParameter("nom");
-		Double prix = Double.parseDouble(req.getParameter("prix"));
-		CategoriePizza cat = CategoriePizza.valueOf(req.getParameter("cat"));
-		String img = req.getParameter("img");
-	
-		servicePizza.savePizza(new Pizza(code, nom, prix, cat, img));
+		String nom = req.getParameter("nomCli");
+		String mail = req.getParameter("mailCli");
+		String password = req.getParameter("mdpCli");
 		
-		resp.sendRedirect("list");
+		servicePizza.saveClient(new Client(nom,mail,password));
+	
 
 	}
 	

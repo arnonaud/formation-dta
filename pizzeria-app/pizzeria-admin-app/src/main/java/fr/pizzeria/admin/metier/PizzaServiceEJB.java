@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
 
 @Stateless
@@ -21,8 +21,18 @@ public class PizzaServiceEJB {
 		return pizzas;
 	}
 	
+	public List<Client> findAllClient(){
+		TypedQuery<Client> query = em.createQuery("SELECT c FROM Client c", Client.class);
+		List<Client> clients = query.getResultList();
+		return clients;
+	}
+	
 	public void savePizza(Pizza p){
 		em.merge(p);
+	}
+	
+	public void saveClient(Client c){
+		em.merge(c);
 	}
 	
 	public void updatePizza(int indice, Pizza pizza){
