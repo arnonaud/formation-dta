@@ -1,3 +1,6 @@
-#cliForm{
+#cliFormAdd{
+	display:none;
+}
+#cliFormEdit{
 	display:none;
 }

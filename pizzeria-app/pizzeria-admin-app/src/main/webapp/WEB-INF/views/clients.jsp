@@ -55,67 +55,109 @@
 
 	<div class="container">
 		<div class="table-responsive">
-			<table id="tableCLi" class="table table-condensed" style="margin-top: 100px;">
+			<table id="tableCLi" class="table table-condensed"
+				style="margin-top: 100px;">
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Nom</th>
 						<th>Mail</th>
 					</tr>
 				</thead>
 				<tbody>
+				
+				
+				
 				</tbody>
 			</table>
-			<a id="addClient" onclick="display();" class="btn btn-primary">Ajout</a>
+			<a id="addClient" class="btn btn-primary">Ajout</a>
 		</div>
-		<br /><br />
-		<div id="cliForm">
-			<form method="post" class="form-horizontal">
-				<fieldset>
+		<br /> <br />
+		<div id="cliFormAdd">
 
-					<!-- Form Name -->
-					<legend>Ajout Client</legend>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="nomCli">Nom</label>
+				<div class="col-md-4">
+					<input id="nomCli" name="nomCli" type="text" placeholder="nom"
+						class="form-control input-md" required="">
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="nomCli">Nom</label>
-						<div class="col-md-4">
-							<input id="nomCli" name="nomCli" type="text" placeholder="nom"
-								class="form-control input-md" required="">
+				</div>
+			</div>
 
-						</div>
-					</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="mailCli">Mail</label>
+				<div class="col-md-4">
+					<input id="mailCli" name="mailCli" type="text" placeholder="mail"
+						class="form-control input-md" required="">
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="mailCli">Mail</label>
-						<div class="col-md-4">
-							<input id="mailCli" name="mailCli" type="text" placeholder="mail"
-								class="form-control input-md" required="">
+				</div>
+			</div>
 
-						</div>
-					</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="mdpCli">Mot de
+					passe</label>
+				<div class="col-md-4">
+					<input id="mdpCli" name="mdpCli" type="text"
+						placeholder="mot de passe" class="form-control input-md">
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="mdpCli">Mot de
-							passe</label>
-						<div class="col-md-4">
-							<input id="mdpCli" name="mdpCli" type="text"
-								placeholder="mot de passe" class="form-control input-md">
+				</div>
+			</div>
 
-						</div>
-					</div>
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="submitCli"></label>
+				<div class="col-md-4">
+					<button id="submitCliAdd" name="submitCliAdd"
+						class="btn btn-primary">Envoyer</button>
+				</div>
+			</div>
 
-					<!-- Button -->
-					<div class="form-group">
-						<label class="col-md-4 control-label" for="submitCli"></label>
-						<div class="col-md-4">
-							<button onClick="addCli();" name="submitCli" class="btn btn-primary">Envoyer</button>
-						</div>
-					</div>
 
-				</fieldset>
-			</form>
+		</div>
+		<div id="cliFormEdit">
+			<input type="hidden" id="idCliEdit" />
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="nomCli">Nom</label>
+				<div class="col-md-4">
+					<input id="nomCliEdit" name="nomCli" type="text" placeholder="nom"
+						class="form-control input-md" required="">
+
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="mailCli">Mail</label>
+				<div class="col-md-4">
+					<input id="mailCliEdit" name="mailCli" type="text"
+						placeholder="mail" class="form-control input-md" required="">
+
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="mdpCli">Mot de
+					passe</label>
+				<div class="col-md-4">
+					<input id="mdpCliEdit" name="mdpCli" type="text"
+						placeholder="mot de passe" class="form-control input-md">
+
+				</div>
+			</div>
+
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="submitCli"></label>
+				<div class="col-md-4">
+					<button id="submitCliEdit" name="submitCliEdit"
+						class="btn btn-primary">Envoyer</button>
+				</div>
+			</div>
 
 
 		</div>

@@ -37,7 +37,7 @@ public class AjoutPizzaController extends HttpServlet{
 		String mail = req.getParameter("mailCli");
 		String password = req.getParameter("mdpCli");
 		
-		servicePizza.saveClient(new Client(nom,mail,password));
+		//servicePizza.saveClient(new Client(nom,mail,password));
 	
 
 	}

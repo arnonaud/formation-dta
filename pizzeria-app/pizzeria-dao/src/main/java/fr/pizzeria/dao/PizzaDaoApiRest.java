@@ -7,7 +7,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.client.Client;
 
@@ -25,6 +24,17 @@ public class PizzaDaoApiRest implements PizzaDao {
 		Invocation.Builder builder = target.path("api").path("rest").path("pizzas").request();
 		Response response = builder.get();
 		List<Pizza> readEntity = response.readEntity(new GenericType<List<Pizza>>() {});
+		
+		return readEntity;
+	}
+	
+	@Override
+	public List<fr.pizzeria.model.Client> findAllClient() throws PizzaException {
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target("http://localhost:8080/arnaud-pizzeria-admin-app");
+		Invocation.Builder builder = target.path("api").path("rest").path("clients").request();
+		Response response = builder.get();
+		List<fr.pizzeria.model.Client> readEntity = response.readEntity(new GenericType<List<fr.pizzeria.model.Client>>() {});
 		
 		return readEntity;
 	}

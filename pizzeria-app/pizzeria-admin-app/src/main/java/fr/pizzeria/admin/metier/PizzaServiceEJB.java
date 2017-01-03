@@ -21,19 +21,13 @@ public class PizzaServiceEJB {
 		return pizzas;
 	}
 	
-	public List<Client> findAllClient(){
-		TypedQuery<Client> query = em.createQuery("SELECT c FROM Client c", Client.class);
-		List<Client> clients = query.getResultList();
-		return clients;
-	}
+	
 	
 	public void savePizza(Pizza p){
 		em.merge(p);
 	}
 	
-	public void saveClient(Client c){
-		em.merge(c);
-	}
+	
 	
 	public void updatePizza(int indice, Pizza pizza){
 
@@ -57,5 +51,7 @@ public class PizzaServiceEJB {
 			em.remove(p);
 		}
 	}
+	
+	
 	
 }
