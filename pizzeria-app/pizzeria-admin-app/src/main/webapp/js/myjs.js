@@ -1,8 +1,6 @@
 $(document).ready(function(){
 	
 	$.get("http://localhost:8080/arnaud-pizzeria-admin-app/api/rest/clients/",function(data){
-		
-		
 		for(var i=0; i<data.length; i++){
 			$("#tableCLi").append("<tr id="+data[i].id+">" +
 									"<td>"+ data[i].id +"</td>" +
@@ -39,6 +37,7 @@ function addCli(){
 	        url: 'http://localhost:8080/arnaud-pizzeria-admin-app/api/rest/clients/',
 	        type: 'POST',
 	        contentType: 'application/json',
+	        
 	        data: JSON.stringify({
 	            nom: document.getElementById('nomCli').value,
 	            mail:document.getElementById('mailCli').value,

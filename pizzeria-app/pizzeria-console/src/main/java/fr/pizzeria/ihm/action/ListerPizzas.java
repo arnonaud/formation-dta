@@ -4,18 +4,19 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import fr.pizzeria.ihm.IhmUtil;
-import fr.pizzeria.model.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.model.Pizza;
 
 
 public class ListerPizzas extends Action {
 
-	private IhmUtil ihmUtil;
+	@Autowired
+	private PizzaDao pizzaDao;
 
-	public ListerPizzas(IhmUtil ihmUtil) {
+	public ListerPizzas() {
 		super();
-		this.ihmUtil = ihmUtil;
 	}
 
 	@Override
@@ -23,7 +24,7 @@ public class ListerPizzas extends Action {
 		System.out.println("Liste des pizzas par catégorie");
 
 		// récupétation de toutes les pizzas
-		List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
+		List<Pizza> pizzas = this.pizzaDao.findAll();
 
 		// affichage des pizzas par catégorie
 

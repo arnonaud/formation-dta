@@ -2,6 +2,9 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import fr.pizzeria.dao.PizzaDao;
 
 
@@ -12,15 +15,17 @@ import fr.pizzeria.dao.PizzaDao;
  * @author Arnaud
  *
  */
+@Component
 public class IhmUtil {
 
+	@Autowired
 	private Scanner scanner;
+	@Autowired
 	private PizzaDao pizzaDao;
 
-	public IhmUtil(Scanner scanner, PizzaDao pizzaDao) {
-		super();
-		this.scanner = scanner;
-		this.pizzaDao = pizzaDao;
+		
+	public IhmUtil() {
+
 	}
 
 	public Scanner getScanner() {

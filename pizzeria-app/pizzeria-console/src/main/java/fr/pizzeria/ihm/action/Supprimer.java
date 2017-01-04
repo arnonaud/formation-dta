@@ -1,7 +1,11 @@
 package fr.pizzeria.ihm.action;
 
+import java.util.Scanner;
 import java.util.logging.Logger;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.IhmUtil;
@@ -16,27 +20,29 @@ import fr.pizzeria.ihm.IhmUtil;
  */
 public class Supprimer extends Action {
 
-	private IhmUtil ihmUtil;
-
-	public Supprimer(IhmUtil ihmUtil) {
+	@Autowired
+	private Scanner scanner;
+	@Autowired
+	private PizzaDao pizzaDao;
+	@Autowired
+	private ListerPizzas listerPizzas;
+	public Supprimer() {
 		super();
-		this.ihmUtil = ihmUtil;
 	}
 
 	@Override
 	public void executerAction() {
 		System.out.println("Mise à jour d'une pizza");
 		// Listing de toute les pizzas
-		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
-		listerPizza.executerAction();
+		listerPizzas.executerAction();
 
 		System.out.println("Veuillez choisir la pizza à supprimer");
 		System.out.println("99 pour abandonner");
 
-		String codePizza = this.ihmUtil.getScanner().nextLine();
+		String codePizza = this.scanner.nextLine();
 		if (!codePizza.equals("99")) {
 			try {
-				this.ihmUtil.getPizzaDao().deletePizza(codePizza);
+				this.pizzaDao.deletePizza(codePizza);
 				System.out.println("Pizza suprimée");
 			} catch (PizzaException e) {
 				Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());

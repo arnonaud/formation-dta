@@ -3,36 +3,42 @@ package fr.pizzeria.ihm.action;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.PizzaException;
-import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 public class MiseAJour extends Action {
 
-	private IhmUtil ihmUtil;
+	@Autowired
+	private Scanner sc;
 
-	public MiseAJour(IhmUtil ihmUtil) {
+	@Autowired
+	private PizzaDao pizzaDao;
+	
+	@Autowired
+	private ListerPizzas listerPizzas;
+	
+	public MiseAJour() {
 		super();
-		this.ihmUtil = ihmUtil;
 	}
 
 	@Override
 	public void executerAction() throws PizzaException {
 		System.out.println("mise à jour d'une pizza");
 		// Listing de toute les pizzas
-		ListerPizzas listerPizza = new ListerPizzas(ihmUtil);
-		listerPizza.executerAction();
+		listerPizzas.executerAction();
 
 		System.out.println("Veuillez choisir la pizza à modifier");
 		System.out.println("99 pour abandonner");
 
 		// Recherche de la pizza à modifier
-		Scanner sc = this.ihmUtil.getScanner();
 		String codePizza = sc.nextLine();
 		if (!codePizza.equals("99")) {
 
 			// récuperation de l'indice de la pizza à modifier
-			List<Pizza> pizzas = this.ihmUtil.getPizzaDao().findAll();
+			List<Pizza> pizzas = this.pizzaDao.findAll();
 			int indice = pizzas.stream().filter(p -> p.getCode().equals(codePizza)).findFirst().get().getId();
 			
 			// Demande des saisies avec stockage des modifications
@@ -57,7 +63,7 @@ public class MiseAJour extends Action {
 			// instanciation d'une nouvelle pizza
 			Pizza pizza = new Pizza(code, nom, prix, cat);
 
-			this.ihmUtil.getPizzaDao().updatePizza(indice, pizza);
+			this.pizzaDao.updatePizza(indice, pizza);
 			System.out.println("Liste des pizzas modifi�e");
 
 		}

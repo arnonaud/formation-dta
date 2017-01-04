@@ -24,7 +24,6 @@ public class PizzaDaoJPA implements PizzaDao {
 
 	public PizzaDaoJPA() {
 		this.emf = Persistence.createEntityManagerFactory("pizzeria-console");
-
 	}
 
 	public void saveCommande(Commande p) throws PizzaException {

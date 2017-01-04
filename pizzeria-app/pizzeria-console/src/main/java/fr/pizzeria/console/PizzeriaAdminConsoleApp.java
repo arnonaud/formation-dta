@@ -1,30 +1,24 @@
 package fr.pizzeria.console;
 
-import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.logging.Level;
 
-import fr.pizzeria.abstractfactory.AbstractFactory;
-import fr.pizzeria.dao.PizzaDao;
-
-import fr.pizzeria.ihm.IhmUtil;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import java.util.logging.Logger;
 import fr.pizzeria.ihm.Menu;
 
 public class PizzeriaAdminConsoleApp {
 
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-		java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
-		ResourceBundle bundle = ResourceBundle.getBundle("application");
-		String daoConfig = bundle.getString("dao.impl");
-		AbstractFactory daoFactory = (AbstractFactory) Class.forName(daoConfig).newInstance();
-		
+	public static void main(String[] args)
+			throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 
-		PizzaDao pizzaDao = daoFactory.getService().getPizzas();
-		Scanner sc = new Scanner(System.in);
-		IhmUtil ihmUtil = new IhmUtil(sc, pizzaDao);
+		try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+				PizzeriaAppSpringConfig.class)) {
+			Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
 
-		Menu menu = new Menu(ihmUtil);
-		menu.demarrer();
+			Menu menu = context.getBean(Menu.class);
+			menu.demarrer();
+
+		}
 
 	}
 

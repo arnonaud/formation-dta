@@ -38,8 +38,7 @@ public class PizzaDaoJdbc implements PizzaDao {
 				String code = resultats.getString("reference");
 				String nom = resultats.getString("libelle");
 				double prix = resultats.getDouble("prix");
-				CategoriePizza cat = CategoriePizza
-						.valueOf(resultats.getString("categorie").replaceAll(" ", "_").toUpperCase());
+				CategoriePizza cat = CategoriePizza.valueOf(resultats.getString("categorie").replaceAll(" ", "_").toUpperCase());
 				pizzas.add(new Pizza(code, nom, prix, cat));
 			}
 

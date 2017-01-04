@@ -1,20 +1,28 @@
 package fr.pizzeria.ihm.action;
 
 
+import java.util.Scanner;
 import java.util.logging.Logger;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
-import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 public class Ajouter extends Action {
 
-	private IhmUtil ihmUtil;
+	//private IhmUtil ihmUtil;
 
-	public Ajouter(IhmUtil ihmUtil) {
+	@Autowired
+	private Scanner scanner;
+	@Autowired
+	private PizzaDao pizzaDao;
+	
+	public Ajouter() {
 		super();
-		this.ihmUtil = ihmUtil;
 	}
 
 	@Override
@@ -22,24 +30,26 @@ public class Ajouter extends Action {
 		// demande saisie
 		System.out.println("Ajout d'une pizza");
 		System.out.println("Veuillez saisir le code");
-		String code = this.ihmUtil.getScanner().nextLine();
+		String code = this.scanner.nextLine();
 		System.out.println("Veuillez saisir le nom (sans espace)");
-		String nom = this.ihmUtil.getScanner().nextLine();
+		String nom = this.scanner.nextLine();
 		System.out.println("Veuillez saisir le prix");
-		String prix = this.ihmUtil.getScanner().nextLine();
+		String prix = this.scanner.nextLine();
 		System.out.println("Veuillez saisir la cat�gorie (Viande, Poisson, Sans Viande)");
-		String categorie = this.ihmUtil.getScanner().nextLine();
+		String categorie = this.scanner.nextLine();
 		CategoriePizza cat;
 		cat = CategoriePizza.valueOf(categorie.replaceAll(" ", "_").toUpperCase());
 		// crée l'objet pizza à partir de la saisie
 		Pizza p = new Pizza(code, nom, Double.parseDouble(prix), cat);
 		try {
-			this.ihmUtil.getPizzaDao().savePizza(p);
+			this.pizzaDao.savePizza(p);
 		} catch (PizzaException e) {
 			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
 			throw new PizzaException(e);
 		}
 
 	}
+	
+	
 
 }

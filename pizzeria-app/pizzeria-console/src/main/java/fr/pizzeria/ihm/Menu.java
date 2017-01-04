@@ -2,7 +2,15 @@ package fr.pizzeria.ihm;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.logging.Logger;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
@@ -20,6 +28,8 @@ import fr.pizzeria.ihm.action.Supprimer;
  *
  */
 
+@Component
+@Scope("prototype")
 public class Menu {
 
 	/**
@@ -29,34 +39,49 @@ public class Menu {
 	 */
 	private Map<Integer, Action> menu;
 
-	/**
-	 * @see IhmUtil
-	 */
-	private IhmUtil ihmUtil;
+	@Autowired
+	private Scanner scanner;
+	
+	@Autowired
+	private ListerPizzas listerPizzas;
+	
+	@Autowired
+	private Ajouter ajouterPizza;
 
+	@Autowired
+	private MiseAJour majPizza;
+	
+	@Autowired
+	private Supprimer supprimerPizza;
+	
 	/**
 	 * Constructeur avec création des differentes Action possibles (lister,
 	 * ajouter, mise à jour, suppression)
 	 * 
 	 * @param ihmUtil
 	 */
-	public Menu(IhmUtil ihmUtil) {
+	
+	public Menu() {
 
-		this.ihmUtil = ihmUtil;
-		menu = new HashMap<>();
-		menu.put(1, new ListerPizzas(ihmUtil));
-		menu.put(2, new Ajouter(ihmUtil));
-		menu.put(3, new MiseAJour(ihmUtil));
-		menu.put(4, new Supprimer(ihmUtil));
-		menu.put(5, new ImportJdbc(ihmUtil));
+		init();
 	}
 
+	@PostConstruct
+	public void init(){
+		menu = new HashMap<>();
+		menu.put(1, listerPizzas);
+		menu.put(2, ajouterPizza);
+		menu.put(3, majPizza);
+		menu.put(4, supprimerPizza);
+		//menu.put(5, new ImportJdbc(ihmUtil));
+	}
+	
 	/**
 	 * Permet de lancer l'action saisie par l'utilisateur
 	 */
 	private void execAction() {
 
-		int choix = Integer.parseInt(this.ihmUtil.getScanner().nextLine());
+		int choix = Integer.parseInt(this.scanner.nextLine());
 		if (choix != 99) {
 			if (choix <= 5) {
 				try {
