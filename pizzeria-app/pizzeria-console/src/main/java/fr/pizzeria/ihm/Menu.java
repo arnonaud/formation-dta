@@ -6,17 +6,14 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.Ajouter;
-import fr.pizzeria.ihm.action.ImportJdbc;
 import fr.pizzeria.ihm.action.ListerPizzas;
 import fr.pizzeria.ihm.action.MiseAJour;
 import fr.pizzeria.ihm.action.Supprimer;
@@ -29,7 +26,6 @@ import fr.pizzeria.ihm.action.Supprimer;
  */
 
 @Component
-@Scope("prototype")
 public class Menu {
 
 	/**
@@ -54,16 +50,8 @@ public class Menu {
 	@Autowired
 	private Supprimer supprimerPizza;
 	
-	/**
-	 * Constructeur avec création des differentes Action possibles (lister,
-	 * ajouter, mise à jour, suppression)
-	 * 
-	 * @param ihmUtil
-	 */
-	
 	public Menu() {
 
-		init();
 	}
 
 	@PostConstruct

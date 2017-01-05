@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+
+@Controller
 public class MiseAJour extends Action {
 
 	@Autowired
@@ -16,9 +19,9 @@ public class MiseAJour extends Action {
 
 	@Autowired
 	private PizzaDao pizzaDao;
-	
-	//@Autowired
-	//private ListerPizzas listerPizzas;
+		
+	@Autowired
+	private ListerPizzas listerPizzas;
 	
 	public MiseAJour() {
 		super();
@@ -28,7 +31,6 @@ public class MiseAJour extends Action {
 	public void executerAction() throws PizzaException {
 		System.out.println("mise à jour d'une pizza");
 		// Listing de toute les pizzas
-		ListerPizzas listerPizzas = new ListerPizzas();
 		listerPizzas.executerAction();
 
 		System.out.println("Veuillez choisir la pizza à modifier");

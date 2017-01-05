@@ -6,12 +6,15 @@ import java.util.logging.Logger;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+
+@Controller
 public class Ajouter extends Action {
 
 	//private IhmUtil ihmUtil;

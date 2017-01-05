@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.model.Pizza;
 
-
+@Controller
 public class ListerPizzas extends Action {
 
 	@Autowired
@@ -25,7 +27,6 @@ public class ListerPizzas extends Action {
 
 		// récupétation de toutes les pizzas
 		List<Pizza> pizzas = this.pizzaDao.findAll();
-
 		// affichage des pizzas par catégorie
 
 		Comparator<Pizza> comparatorCategorie = Comparator.comparing(Pizza::getCategorie);

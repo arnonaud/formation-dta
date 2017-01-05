@@ -1,3 +1,5 @@
+
+
 package fr.pizzeria.dao;
 
 import java.sql.Statement;
@@ -15,8 +17,6 @@ import org.apache.commons.collections4.ListUtils;
 
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
-import fr.pizzeria.model.Client;
-import fr.pizzeria.model.Commande;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoJdbc implements PizzaDao {
