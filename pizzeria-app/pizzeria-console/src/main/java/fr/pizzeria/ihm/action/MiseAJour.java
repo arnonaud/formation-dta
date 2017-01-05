@@ -17,8 +17,8 @@ public class MiseAJour extends Action {
 	@Autowired
 	private PizzaDao pizzaDao;
 	
-	@Autowired
-	private ListerPizzas listerPizzas;
+	//@Autowired
+	//private ListerPizzas listerPizzas;
 	
 	public MiseAJour() {
 		super();
@@ -28,6 +28,7 @@ public class MiseAJour extends Action {
 	public void executerAction() throws PizzaException {
 		System.out.println("mise à jour d'une pizza");
 		// Listing de toute les pizzas
+		ListerPizzas listerPizzas = new ListerPizzas();
 		listerPizzas.executerAction();
 
 		System.out.println("Veuillez choisir la pizza à modifier");

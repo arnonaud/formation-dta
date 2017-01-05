@@ -24,8 +24,8 @@ public class Supprimer extends Action {
 	private Scanner scanner;
 	@Autowired
 	private PizzaDao pizzaDao;
-	@Autowired
-	private ListerPizzas listerPizzas;
+	//@Autowired
+	//private ListerPizzas listerPizzas;
 	public Supprimer() {
 		super();
 	}
@@ -34,6 +34,7 @@ public class Supprimer extends Action {
 	public void executerAction() {
 		System.out.println("Mise à jour d'une pizza");
 		// Listing de toute les pizzas
+		ListerPizzas listerPizzas = new ListerPizzas();
 		listerPizzas.executerAction();
 
 		System.out.println("Veuillez choisir la pizza à supprimer");
