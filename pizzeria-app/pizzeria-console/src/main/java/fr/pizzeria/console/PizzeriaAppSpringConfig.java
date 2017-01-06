@@ -5,13 +5,17 @@ import java.util.Scanner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 
 @Configuration
 @ComponentScan("fr.pizzeria")
+@EnableAspectJAutoProxy
 public class PizzeriaAppSpringConfig {
 
 	@Bean
@@ -21,9 +25,26 @@ public class PizzeriaAppSpringConfig {
 	}
 
 	@Bean
-	public EmbeddedDatabase dataSource() {
+	public EmbeddedDatabase dataSourceEmbedded(){
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		return builder.setType(EmbeddedDatabaseType.H2).addScript("test-data.sql").build();
+		return builder
+				.setType(EmbeddedDatabaseType.H2)
+				.addScript("test-data.sql")
+				.build();
 	}
+	
+	
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+		em.setPersistenceUnitName("pizzeria-console");
+		return em;
+	}
+	
+	@Bean
+	public JpaTransactionManager txManager(){
+		return new JpaTransactionManager();
+	}
+	
 
 }
