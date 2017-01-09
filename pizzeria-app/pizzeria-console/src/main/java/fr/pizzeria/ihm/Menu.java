@@ -14,6 +14,7 @@ import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.Ajouter;
+import fr.pizzeria.ihm.action.ListerPerfomance;
 import fr.pizzeria.ihm.action.ListerPizzas;
 import fr.pizzeria.ihm.action.MiseAJour;
 import fr.pizzeria.ihm.action.Supprimer;
@@ -50,6 +51,9 @@ public class Menu {
 	@Autowired
 	private Supprimer supprimerPizza;
 	
+	@Autowired
+	private ListerPerfomance listerPerformances;
+	
 	public Menu() {
 
 	}
@@ -61,7 +65,7 @@ public class Menu {
 		menu.put(2, ajouterPizza);
 		menu.put(3, majPizza);
 		menu.put(4, supprimerPizza);
-		//menu.put(5, new ImportJdbc(ihmUtil));
+		menu.put(5, listerPerformances);
 	}
 	
 	/**
@@ -96,7 +100,7 @@ public class Menu {
 		System.out.println("2. Ajouter une nouvelle pizza");
 		System.out.println("3. Mettre à jour une pizza");
 		System.out.println("4. Supprimer une pizza");
-		System.out.println("5. Importer les données");
+		System.out.println("5. Lister performances");
 		System.out.println("99. Sortir");
 		execAction();
 	}

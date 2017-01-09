@@ -1,22 +1,21 @@
-package fr.pizzeria.dao;
-
+package fr.pizzeria.stock.app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("fr.pizzeria")
+@EnableWebMvc
 @EnableTransactionManagement
-public class PizzaDaoJpaSpringConfig {
+@ComponentScan("fr.pizzeria")
+public class StockSpringConfig {
 
-
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
@@ -28,13 +27,13 @@ public class PizzaDaoJpaSpringConfig {
 	public JpaTransactionManager txManager(){
 		return new JpaTransactionManager();
 	}
-	
+
 	@Bean
-	public EmbeddedDatabase dataSourceEmbedded(){
-		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		return builder
-				.setType(EmbeddedDatabaseType.H2)
-				.addScript("test-data.sql")
-				.build();
+	public InternalResourceViewResolver internalResourceViewResolver(){
+		InternalResourceViewResolver irvr = new InternalResourceViewResolver();
+		irvr.setPrefix("/WEB-INF/views/");
+		irvr.setSuffix(".jsp");
+		return irvr;
 	}
+	
 }

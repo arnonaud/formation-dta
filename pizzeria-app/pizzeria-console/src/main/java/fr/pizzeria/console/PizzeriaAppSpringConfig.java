@@ -2,10 +2,13 @@ package fr.pizzeria.console;
 
 import java.util.Scanner;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -24,7 +27,7 @@ public class PizzeriaAppSpringConfig {
 		return scanner;
 	}
 
-	@Bean
+	/*@Bean
 	public EmbeddedDatabase dataSourceEmbedded(){
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 		return builder
@@ -33,7 +36,7 @@ public class PizzeriaAppSpringConfig {
 				.build();
 	}
 	
-	
+	*/
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();

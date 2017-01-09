@@ -1,6 +1,7 @@
 package fr.pizzeria.ihm.action;
 
 
+import java.sql.Date;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -12,6 +13,7 @@ import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.dao.PizzaDaoJdbc;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
+import fr.pizzeria.model.Performance;
 import fr.pizzeria.model.Pizza;
 
 @Controller
@@ -46,6 +48,9 @@ public class Ajouter extends Action {
 		Pizza p = new Pizza(code, nom, Double.parseDouble(prix), cat);
 		try {
 			this.pizzaDao.savePizza(p);
+			
+			this.pizzaDao.savePerformance(new Performance("test", new Date(111), 111));
+			
 		} catch (PizzaException e) {
 			Logger.getLogger(PizzaDaoJdbc.class.getName()).severe(e.getMessage());
 			throw new PizzaException(e);

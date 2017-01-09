@@ -4,7 +4,9 @@ import java.util.List;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Commande;
+import fr.pizzeria.model.Ingredient;
 import fr.pizzeria.model.Livreur;
+import fr.pizzeria.model.Performance;
 import fr.pizzeria.model.Pizza;
 
 public interface PizzaDao {
@@ -48,4 +50,25 @@ public interface PizzaDao {
 	default List<Commande> listerCommande(String identifiant) throws PizzaException{
 		throw new PizzaException("Not Yet Implement");
 	};
+	
+	default void savePerformance(Performance p)throws PizzaException{
+		throw new PizzaException("Not Yet Implement");
+	};
+	
+	default List<Performance> findAllPerformance()throws PizzaException{
+		throw new PizzaException("Not Yet Implement");
+	}
+
+	default List<Ingredient> findAllIngredients()throws PizzaException{
+		throw new PizzaException("Not Yet Implement");
+	}
+	
+	default void saveIngredient(Ingredient ingredient)throws PizzaException{
+		throw new PizzaException("Not Yet Implement");
+	}
+	
+	default void updateIngredient(int indice, Ingredient ingredient)throws PizzaException{
+		throw new PizzaException("Not Yet Implement");
+	}
+	
 }

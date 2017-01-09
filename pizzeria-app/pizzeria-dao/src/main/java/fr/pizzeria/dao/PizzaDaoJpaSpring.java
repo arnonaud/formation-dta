@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.stereotype.Repository;
 
+import aj.org.objectweb.asm.Type;
 import fr.pizzeria.exception.PizzaException;
+import fr.pizzeria.model.Ingredient;
+import fr.pizzeria.model.Performance;
 import fr.pizzeria.model.Pizza;
 
-//@Repository
+@Repository
 public class PizzaDaoJpaSpring implements PizzaDao {
 
 	@PersistenceContext
@@ -41,6 +44,12 @@ public class PizzaDaoJpaSpring implements PizzaDao {
 	}
 
 	@Override
+	@Transactional
+	public void savePerformance(Performance p) throws PizzaException {
+		em.merge(p);
+	}
+
+	@Override
 	public void updatePizza(int indice, Pizza pizza) throws PizzaException {
 		// TODO Auto-generated method stub
 
@@ -52,4 +61,24 @@ public class PizzaDaoJpaSpring implements PizzaDao {
 
 	}
 
+	@Override
+	public List<Ingredient> findAllIngredients() throws PizzaException {
+		TypedQuery<Ingredient> query = em.createQuery("SELECT p FROM Ingredient p", Ingredient.class);
+		List<Ingredient> ingredients = query.getResultList();
+		return ingredients;
+	}
+
+	@Override
+	@Transactional
+	public void saveIngredient(Ingredient ingredient) throws PizzaException {
+		em.merge(ingredient);
+	}
+
+	@Override
+	@Transactional
+	public void updateIngredient(int indice, Ingredient ingredient) throws PizzaException {
+		ingredient.setId(indice);
+		em.merge(ingredient);
+	}
+	
 }
