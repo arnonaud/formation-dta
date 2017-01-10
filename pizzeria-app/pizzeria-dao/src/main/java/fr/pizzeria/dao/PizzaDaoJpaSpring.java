@@ -11,11 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.stereotype.Repository;
 
+import fr.pizzeria.model.Pizza;
+
 import aj.org.objectweb.asm.Type;
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.Ingredient;
 import fr.pizzeria.model.Performance;
-import fr.pizzeria.model.Pizza;
 
 @Repository
 public class PizzaDaoJpaSpring implements PizzaDao {

@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.pizzeria.admin.metier.PizzaService;
-import fr.pizzeria.admin.metier.PizzaServiceEJB;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.admin.metier.PizzaService;
+import fr.pizzeria.admin.metier.PizzaServiceEJB;
 
 @WebServlet(name = "ModifierPizzaController", urlPatterns = { "/pizzas/edit" })
 public class ModifierPizzaController extends HttpServlet {

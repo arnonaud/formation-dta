@@ -8,9 +8,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import fr.pizzeria.model.Pizza;
+
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.model.Performance;
-import fr.pizzeria.model.Pizza;
 
 @Controller
 public class ListerPizzas extends Action {

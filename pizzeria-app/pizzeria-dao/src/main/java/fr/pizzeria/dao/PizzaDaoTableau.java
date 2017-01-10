@@ -2,11 +2,13 @@ package fr.pizzeria.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import fr.pizzeria.exception.PizzaException;
+
 import fr.pizzeria.model.CategoriePizza;
+import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Commande;
-import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoTableau implements PizzaDao {
 

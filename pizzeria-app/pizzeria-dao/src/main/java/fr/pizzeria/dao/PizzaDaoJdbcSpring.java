@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
-import fr.pizzeria.model.Performance;
 import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.exception.PizzaException;
+import fr.pizzeria.model.Performance;
 
 //@Repository
 public class PizzaDaoJdbcSpring implements PizzaDao {

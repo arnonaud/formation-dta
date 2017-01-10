@@ -17,6 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import fr.pizzeria.model.Pizza;
+
 @Entity
 @Table(name = "commande")
 public class Commande {

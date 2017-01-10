@@ -27,7 +27,7 @@ public class PizzeriaAppSpringConfig {
 		return scanner;
 	}
 
-	/*@Bean
+	@Bean
 	public EmbeddedDatabase dataSourceEmbedded(){
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 		return builder
@@ -36,7 +36,7 @@ public class PizzeriaAppSpringConfig {
 				.build();
 	}
 	
-	*/
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();

@@ -3,9 +3,10 @@ package fr.pizzeria.admin.metier;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import fr.pizzeria.model.Pizza;
+
 import fr.pizzeria.abstractfactory.AbstractFactory;
 import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.model.Pizza;
 
 public class PizzaService {
 

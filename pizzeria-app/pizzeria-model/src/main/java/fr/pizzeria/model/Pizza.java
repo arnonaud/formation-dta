@@ -9,9 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 
 
 /**
@@ -103,31 +100,7 @@ public class Pizza {
 		return this.id +" : " +this.code + " -> " + this.nom + " (" + this.prix + "€), categorie : " + this.categorie;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null) { return false; }
-		   if (obj == this) { return true; }
-		   if (obj.getClass() != getClass()) {
-		     return false;
-		   }
-		   Pizza rhs = (Pizza) obj;
-		   return new EqualsBuilder()
-		                 .append(code, rhs.code)
-		                 .append(nom, rhs.nom)
-		                 .append(prix, rhs.prix)
-		                 .append(categorie, rhs.categorie)
-		                 .isEquals();
-	}
-
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder(17, 37).
-			       append(code).
-			       append(nom).
-			       append(prix).
-			       append(categorie).
-			       toHashCode();
-	}
+	
 
 	public String getUrlImage() {
 		return urlImage;

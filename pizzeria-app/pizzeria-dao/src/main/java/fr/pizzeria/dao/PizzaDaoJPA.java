@@ -12,11 +12,12 @@ import javax.persistence.TypedQuery;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import fr.pizzeria.model.Pizza;
+
 import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Commande;
 import fr.pizzeria.model.Livreur;
-import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoJPA implements PizzaDao {
 

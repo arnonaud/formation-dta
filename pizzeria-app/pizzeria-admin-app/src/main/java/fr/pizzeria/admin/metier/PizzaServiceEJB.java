@@ -7,8 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.model.Client;
 
 @Stateless
 public class PizzaServiceEJB {

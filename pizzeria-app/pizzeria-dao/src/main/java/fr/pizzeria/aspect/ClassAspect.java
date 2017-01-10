@@ -11,9 +11,10 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import fr.pizzeria.model.Pizza;
+
 import fr.pizzeria.dao.PizzaDao;
 import fr.pizzeria.model.Performance;
-import fr.pizzeria.model.Pizza;
 
 @Aspect
 @Component
@@ -34,8 +35,8 @@ public class ClassAspect {
 
 	}
 	
-	//@Around("execution(* fr.pizzeria.dao.PizzaDao.*(..))")
-	//public void savePerfomance(ProceedingJoinPoint pjp){
+//	@Around("execution(* fr.pizzeria.dao.PizzaDao.*(..))")
+//	public void savePerfomance(ProceedingJoinPoint pjp){
 		/*Date date = new Date();
 		
 		
@@ -53,9 +54,9 @@ public class ClassAspect {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		*/
 		
-		
-	//}
+//	}
 
 }

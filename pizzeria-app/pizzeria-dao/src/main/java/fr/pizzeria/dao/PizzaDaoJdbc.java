@@ -15,9 +15,10 @@ import java.util.logging.Logger;
 
 import org.apache.commons.collections4.ListUtils;
 
-import fr.pizzeria.exception.PizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.exception.PizzaException;
 
 public class PizzaDaoJdbc implements PizzaDao {
 

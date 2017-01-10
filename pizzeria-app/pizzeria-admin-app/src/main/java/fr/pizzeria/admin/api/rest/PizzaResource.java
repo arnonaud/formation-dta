@@ -13,8 +13,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import fr.pizzeria.admin.metier.PizzaServiceEJB;
 import fr.pizzeria.model.Pizza;
+
+import fr.pizzeria.admin.metier.PizzaServiceEJB;
 
 @Path("/pizzas")
 public class PizzaResource {
