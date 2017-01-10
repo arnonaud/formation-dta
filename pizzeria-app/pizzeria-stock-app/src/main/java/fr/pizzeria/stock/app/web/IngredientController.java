@@ -21,7 +21,8 @@ public class IngredientController {
 	private PizzaDao pizzaDao;
 	
 	@RequestMapping(value="/ingredients", method = RequestMethod.GET)
-	public String listIngredients() {
+	public String listIngredients(Model model) {
+		model.addAttribute("ingredients",pizzaDao.findAllIngredients());
 		return "listIngredients";
 	}
 	
